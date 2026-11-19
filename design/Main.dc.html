@@ -254,12 +254,13 @@ html{scroll-behavior:smooth}
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 36px 24px">
 <sc-for list="{{wines}}" as="w" hint-placeholder-count="8">
 <article class="rv wine-card" style="display: flex; flex-direction: column; gap: 16px">
-<div style="background: {{w.bg}}; border-radius: 24px; height: 360px; display: flex; align-items: center; justify-content: center; position: relative">
-<span style="position: absolute; top: 16px; left: 16px; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: #FAFAF7; color: #141A16">{{w.type}}</span>
+<div style="background: {{w.bg}}; border-radius: 24px; height: 360px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative">
+<span style="position: absolute; top: 16px; left: 16px; z-index: 1; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: #FAFAF7; color: #141A16">{{w.type}}</span>
 <sc-if value="{{w.own}}" hint-placeholder-val="{{ true }}">
-<img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="{{t.ownAlt}}" style="position: absolute; top: 12px; right: 14px; width: 40px; height: auto">
+<img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="{{t.ownAlt}}" style="position: absolute; top: 12px; right: 14px; z-index: 1; width: 40px; height: auto">
 </sc-if>
-<svg class="bottle" role="img" aria-label="{{w.alt}}" viewBox="0 0 60 200" style="width: 76px; height: 254px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{w.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/><rect x="20" y="128" width="20" height="3" fill="#141A16"/><rect x="22" y="136" width="16" height="2" fill="#7A817B"/></svg>
+<sc-if value="{{w.hasImg}}" hint-placeholder-val="{{ true }}"><img class="bottle" src="{{w.img}}" alt="{{w.alt}}" loading="lazy" style="{{w.imgStyle}}"></sc-if>
+<sc-if value="{{w.noImg}}" hint-placeholder-val="{{ false }}"><svg class="bottle" role="img" aria-label="{{w.alt}}" viewBox="0 0 60 200" style="width: 76px; height: 254px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{w.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/><rect x="20" y="128" width="20" height="3" fill="#141A16"/><rect x="22" y="136" width="16" height="2" fill="#7A817B"/></svg></sc-if>
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #4B524C; font-weight: 600">{{w.estate}}</span>
@@ -790,16 +791,30 @@ class Component extends DCLogic {
       ['kopisa','Mtsvane','2021','15,00','weiss'],
       ['kopisa','Amber','2019','15,00','amber'],
       ['kopisa','Rosé','2023','15,00','rose'],
-      ['kopisa','Kisi','2020','15,00','amber'],
+      ['kopisa','Kisi','2020','15,00','weiss'],
       ['kopisa','Alazani Valley','2020','15,00','weiss'],
       ['kopisa','Alazani Valley Rot','2020','15,00','rot'],
       ['kopisa','Saperavi','2019','15,00','rot'],
       ['kvetera','Noble Collection Kindzmarauli','2023','30,00','rot'],
-      ['kvetera','Noble Collection Reserve','2020','33,00','rot'],
+      ['kvetera','Noble Collection Reserve','2020','33,00','weiss'],
       ['kvetera','Traditional','2020','33,00','weiss'],
       ['kvetera','Noble Collection Signature Red','2023','30,00','rot']
     ];
     var names = { bekauri: 'Bekauri Family Vineyards', kopisa: 'Kopisa Family Vineyards', kvetera: 'Chateau Kvetera' };
+    var IMG = {
+      'bekauri-kisi-2022': ['/_blob/5c9ddae80329417df34bb2175827b8b0', 'cut'],
+      'bekauri-mukuzani-reserve-2020': ['/_blob/6aba8613f8d52a48d31a115d92842472', 'cut'],
+      'bekauri-rose-2023': ['/_blob/c30cfbe7d57a69fe9342d14c65b2e255', 'cut'],
+      'bekauri-mtsvane-2023': ['/_blob/a92e1df2327cd61ee8c6c8e6a5f738d9', 'cut'],
+      'bekauri-kindzmarauli-2022': ['/_blob/e4c23e71741b203eedb7a14ea49b5db0', 'cut'],
+      'bekauri-saperavi-qvevri-2021': ['/_blob/43d214b4f07b5aa1b886784286f2c59b', 'cut'],
+      'bekauri-saperavi-2022': ['/_blob/d798fa6f57885a9254f11d04be53c188', 'cut'],
+      'kopisa-amber-2019': ['/_blob/1ec435f57ca15f65c8f7f2d7c38d3801', 'cut'],
+      'kopisa-kisi-2020': ['/_blob/be4df69a3c5b08282462d0f2f7b379a9', 'cut'],
+      'kopisa-saperavi-2019': ['/_blob/0533a58ce1b02ade6a6281ecaab966b2', 'cut'],
+      'kvetera-noble-collection-signature-red-2023': ['/_blob/9fa10f9422d5680fbb8fac8a17784755', 'photo'],
+      'kvetera-noble-collection-reserve-2020': ['/_blob/8b6b8f76cd4fe1cf020617e32f8e1b3f', 'photo']
+    };
     var est = this.state.estate, typ = this.state.type;
     var wines = raw.filter(function (r) {
       return (est === 'all' || r[0] === est) && (typ === 'all' || r[4] === typ);
@@ -813,6 +828,10 @@ class Component extends DCLogic {
         color: c.color, bg: c.bg, type: t.typeShort[r[4]], sub: t.sub(kind),
         url: (lang === 'ka' ? '/ka' : '') + '/weine/' + slug,
         page: 'wein-' + slug + '.dc.html',
+        img: IMG[slug] ? IMG[slug][0] : '', hasImg: !!IMG[slug], noImg: !IMG[slug],
+        imgStyle: IMG[slug] && IMG[slug][1] === 'photo'
+          ? 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 24px; z-index: 0'
+          : 'height: 310px; width: auto; max-width: 80%; object-fit: contain; mix-blend-mode: multiply',
         alt: t.bottleAlt(names[r[0]] + ' ' + nm + ' ' + r[2], kind)
       };
     });

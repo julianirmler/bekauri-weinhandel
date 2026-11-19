@@ -53,12 +53,13 @@ body{margin:0}
 <section style="padding: 32px 28px 88px">
 <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 56px; align-items: start">
 <div style="display: flex; flex-direction: column; gap: 14px">
-<div style="background: {{w.bg}}; border-radius: 32px; height: 640px; display: flex; align-items: center; justify-content: center; position: relative">
-<span style="position: absolute; top: 20px; left: 20px; background: #FAFAF7; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">Bildplatz · Flaschenfoto {{w.slug}}.webp</span>
+<div style="background: {{w.bg}}; border-radius: 32px; height: 640px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative">
+<span style="position: absolute; top: 20px; left: 20px; z-index: 1; background: #FAFAF7; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">{{w.photoLabel}}</span>
 <sc-if value="{{w.own}}" hint-placeholder-val="{{ true }}">
-<img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="Eigener Wein von Bekauri Family Vineyards" style="position: absolute; top: 16px; right: 20px; width: 56px; height: auto">
+<img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="Eigener Wein von Bekauri Family Vineyards" style="position: absolute; top: 16px; right: 20px; z-index: 1; width: 56px; height: auto">
 </sc-if>
-<svg class="bottle" role="img" aria-label="{{w.alt}}" viewBox="0 0 60 200" style="width: 128px; height: 428px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{w.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/><rect x="20" y="128" width="20" height="3" fill="#141A16"/><rect x="22" y="136" width="16" height="2" fill="#7A817B"/></svg>
+<sc-if value="{{w.hasImg}}" hint-placeholder-val="{{ true }}"><img class="bottle" src="{{w.img}}" alt="{{w.alt}}" style="{{w.bigStyle}}"></sc-if>
+<sc-if value="{{w.noImg}}" hint-placeholder-val="{{ false }}"><svg class="bottle" role="img" aria-label="{{w.alt}}" viewBox="0 0 60 200" style="width: 128px; height: 428px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{w.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/><rect x="20" y="128" width="20" height="3" fill="#141A16"/><rect x="22" y="136" width="16" height="2" fill="#7A817B"/></svg></sc-if>
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
 <div style="background: #ECE8E1; border-radius: 18px; height: 120px; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; font-weight: 700; color: #4B524C">Etikett</div>
@@ -178,8 +179,9 @@ body{margin:0}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
 <sc-for list="{{related}}" as="r" hint-placeholder-count="3">
 <a href="{{r.page}}" class="wine-card" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
-<div style="background: {{r.bg}}; border-radius: 24px; height: 300px; display: flex; align-items: center; justify-content: center">
-<svg class="bottle" aria-hidden="true" viewBox="0 0 60 200" style="width: 64px; height: 214px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{r.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/></svg>
+<div style="background: {{r.bg}}; border-radius: 24px; height: 300px; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{r.hasImg}}" hint-placeholder-val="{{ true }}"><img class="bottle" src="{{r.img}}" alt="" loading="lazy" style="{{r.smallStyle}}"></sc-if>
+<sc-if value="{{r.noImg}}" hint-placeholder-val="{{ false }}"><svg class="bottle" aria-hidden="true" viewBox="0 0 60 200" style="width: 64px; height: 214px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{r.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/></svg></sc-if>
 </div>
 <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 26px; line-height: 1.1">{{r.name}} {{r.year}}</span>
 <span style="font-weight: 700">€ {{r.price}}</span>
@@ -249,17 +251,31 @@ class Component extends DCLogic {
       ['bekauri-mukuzani-reserve-2020','bekauri','Mukuzani Reserve','2020','23,50',23.5,'rot','Saperavi','trocken', D.mukuz, 'Reserve'],
       ['bekauri-saperavi-2022','bekauri','Saperavi','2022','19,00',19,'rot','Saperavi','[lt. Etikett]', D.saperavi, ''],
       ['kopisa-mtsvane-2021','kopisa','Mtsvane','2021','15,00',15,'weiss','Mtsvane','[lt. Etikett]', D.mtsvane, ''],
-      ['kopisa-amber-2019','kopisa','Amber','2019','15,00',15,'amber','[Rebsorte]','[lt. Etikett]', D.amber, ''],
+      ['kopisa-amber-2019','kopisa','Amber','2019','15,00',15,'amber','[Rebsorte]','halbsüß', D.amber, '', '12,5'],
       ['kopisa-rose-2023','kopisa','Rosé','2023','15,00',15,'rose','[Rebsorte]','[lt. Etikett]', D.rose + ' ' + D.tbd, ''],
-      ['kopisa-kisi-2020','kopisa','Kisi','2020','15,00',15,'amber','Kisi','[lt. Etikett]', D.kisi, ''],
+      ['kopisa-kisi-2020','kopisa','Kisi','2020','15,00',15,'weiss','Kisi','trocken', D.kisi, '', '13'],
       ['kopisa-alazani-valley-2020','kopisa','Alazani Valley','2020','15,00',15,'weisssuess','[Rebsorte]','halbsüß', D.alazani, ''],
       ['kopisa-alazani-valley-rot-2020','kopisa','Alazani Valley Rot','2020','15,00',15,'rotsuess','[Rebsorte]','halbsüß', D.alazani, ''],
-      ['kopisa-saperavi-2019','kopisa','Saperavi','2019','15,00',15,'rot','Saperavi','[lt. Etikett]', D.saperavi, ''],
+      ['kopisa-saperavi-2019','kopisa','Saperavi','2019','15,00',15,'rot','Saperavi','trocken', D.saperavi, '', '13'],
       ['kvetera-noble-collection-kindzmarauli-2023','kvetera','Noble Collection Kindzmarauli','2023','30,00',30,'rotsuess','Saperavi','lieblich', D.kindz, ''],
-      ['kvetera-noble-collection-reserve-2020','kvetera','Noble Collection Reserve','2020','33,00',33,'rot','[Rebsorte]','[lt. Etikett]', D.tbd, 'Reserve'],
+      ['kvetera-noble-collection-reserve-2020','kvetera','Noble Collection Reserve','2020','33,00',33,'weiss','[Rebsorte]','trocken', D.tbd, 'Reserve'],
       ['kvetera-traditional-2020','kvetera','Traditional','2020','33,00',33,'weiss','[Rebsorte]','[lt. Etikett]', D.tbd, ''],
-      ['kvetera-noble-collection-signature-red-2023','kvetera','Noble Collection Signature Red','2023','30,00',30,'rot','[Rebsorte]','[lt. Etikett]', D.tbd, '']
+      ['kvetera-noble-collection-signature-red-2023','kvetera','Noble Collection Signature Red','2023','30,00',30,'rotsuess','[Rebsorte]','süß (Etikett: „Sweet Red“)', D.tbd, '']
     ];
+    var IMG = {
+      'bekauri-kisi-2022': ['/_blob/5c9ddae80329417df34bb2175827b8b0', 'cut'],
+      'bekauri-mukuzani-reserve-2020': ['/_blob/6aba8613f8d52a48d31a115d92842472', 'cut'],
+      'bekauri-rose-2023': ['/_blob/c30cfbe7d57a69fe9342d14c65b2e255', 'cut'],
+      'bekauri-mtsvane-2023': ['/_blob/a92e1df2327cd61ee8c6c8e6a5f738d9', 'cut'],
+      'bekauri-kindzmarauli-2022': ['/_blob/e4c23e71741b203eedb7a14ea49b5db0', 'cut'],
+      'bekauri-saperavi-qvevri-2021': ['/_blob/43d214b4f07b5aa1b886784286f2c59b', 'cut'],
+      'bekauri-saperavi-2022': ['/_blob/d798fa6f57885a9254f11d04be53c188', 'cut'],
+      'kopisa-amber-2019': ['/_blob/1ec435f57ca15f65c8f7f2d7c38d3801', 'cut'],
+      'kopisa-kisi-2020': ['/_blob/be4df69a3c5b08282462d0f2f7b379a9', 'cut'],
+      'kopisa-saperavi-2019': ['/_blob/0533a58ce1b02ade6a6281ecaab966b2', 'cut'],
+      'kvetera-noble-collection-signature-red-2023': ['/_blob/9fa10f9422d5680fbb8fac8a17784755', 'photo'],
+      'kvetera-noble-collection-reserve-2020': ['/_blob/8b6b8f76cd4fe1cf020617e32f8e1b3f', 'photo']
+    };
     var list = W.map(function (r) {
       var s = STYLE[r[6]], e = EST[r[1]];
       var perL = (r[5] / 0.75).toFixed(2).replace('.', ',');
@@ -268,7 +284,15 @@ class Component extends DCLogic {
         name: r[2], year: r[3], price: r[4], perLiter: '€ ' + perL + ' / l',
         grape: r[7], taste: r[8], desc: r[9], extra: r[10],
         kind: s.kind, color: s.color, bg: s.bg, food: s.food, temp: s.temp,
-        slug: r[0], page: 'wein-' + r[0] + '.dc.html',
+        photoLabel: IMG[r[0]] ? 'Foto: bekaurivineyards.com' : 'Bildplatz · Flaschenfoto ' + r[0] + '.webp',
+        slug: r[0], page: 'wein-' + r[0] + '.dc.html', alc: r[11] ? r[11] + ' % vol.' : '[lt. Etikett] % vol.',
+        img: IMG[r[0]] ? IMG[r[0]][0] : '', hasImg: !!IMG[r[0]], noImg: !IMG[r[0]],
+        bigStyle: IMG[r[0]] && IMG[r[0]][1] === 'photo'
+          ? 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 32px; z-index: 0'
+          : 'height: 560px; width: auto; max-width: 80%; object-fit: contain; mix-blend-mode: multiply',
+        smallStyle: IMG[r[0]] && IMG[r[0]][1] === 'photo'
+          ? 'width: 100%; height: 100%; object-fit: cover; border-radius: 24px'
+          : 'height: 260px; width: auto; object-fit: contain; mix-blend-mode: multiply',
         alt: 'Flasche ' + e.name + ' ' + r[2] + ' ' + r[3] + ' – georgischer ' + s.kind,
         lead: 'Georgischer ' + s.kind + ' von ' + e.name + ' aus dem Jahrgang ' + r[3] + '.'
       };
@@ -288,7 +312,7 @@ class Component extends DCLogic {
       { k: 'Geschmack', v: w.taste },
       { k: 'Jahrgang', v: w.year },
       { k: 'Füllmenge', v: '0,75 l' },
-      { k: 'Alkohol', v: '[lt. Etikett] % vol.' },
+      { k: 'Alkohol', v: w.alc },
       { k: 'Allergene', v: 'Enthält Sulfite' }
     ];
     if (w.extra) facts.splice(4, 0, { k: 'Ausbau', v: w.extra });
