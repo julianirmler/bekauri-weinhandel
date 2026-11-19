@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>SEO- &amp; On-Page-Spezifikation – Bekauri</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#A84A2E}a:hover{color:#7E3420}
+</style>
+</helmet>
+<div style="font-family: Manrope, system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6">
+<div style="max-width: 1120px; margin: 0 auto; padding: 72px 28px 96px; display: flex; flex-direction: column; gap: 64px">
+
+<header style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #A84A2E; font-weight: 700">Konzept · SEO &amp; On-Page</p>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 64px; line-height: 1.02">SEO-Spezifikation für den Bekauri One-Pager</h1>
+<p style="margin: 0; color: #4B524C; font-size: 18px; max-width: 760px">Was im Design umgesetzt ist und was die Entwicklung im Code ergänzen muss: Keyword-Zuordnung, Meta-Daten, Überschriften, URLs, strukturierte Daten und Technik.</p>
+</header>
+
+<!-- 1 Keyword-Mapping -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">1 · Keyword-Mapping</h2>
+<p style="margin: 0; color: #4B524C">Ein Hauptkeyword pro URL, damit sich Seiten nicht gegenseitig Konkurrenz machen. Suchvolumen vor dem Livegang mit Google Search Console bzw. Keyword-Planer prüfen.</p>
+<div style="overflow-x: auto; border: 1px solid #E2DDD4; border-radius: 18px; background: #FFFFFF">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 760px">
+<thead><tr style="background: #ECE8E1; text-align: left"><th style="padding: 14px 18px">URL</th><th style="padding: 14px 18px">Hauptkeyword</th><th style="padding: 14px 18px">Neben-Keywords</th></tr></thead>
+<tbody>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/</td><td style="padding: 14px 18px; font-weight: 700">georgischer Wein kaufen</td><td style="padding: 14px 18px; color: #4B524C">georgische Weine Österreich, Weinhandel Graz, Familienweingut Kachetien</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/weine/</td><td style="padding: 14px 18px; font-weight: 700">georgische Weine online kaufen</td><td style="padding: 14px 18px; color: #4B524C">georgischer Rotwein, georgischer Weißwein</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/weine/saperavi/</td><td style="padding: 14px 18px; font-weight: 700">Saperavi kaufen</td><td style="padding: 14px 18px; color: #4B524C">Saperavi Wein, Mukuzani, Kindzmarauli</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/weine/amber-wine/</td><td style="padding: 14px 18px; font-weight: 700">Amber Wine kaufen</td><td style="padding: 14px 18px; color: #4B524C">Orange Wine Georgien, Kvevri Wein Österreich</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/weinwissen/kvevri-wein/</td><td style="padding: 14px 18px; font-weight: 700">Kvevri Wein</td><td style="padding: 14px 18px; color: #4B524C">Qvevri, georgische Weinherstellung, UNESCO</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/weinwissen/georgische-rebsorten/</td><td style="padding: 14px 18px; font-weight: 700">georgische Rebsorten</td><td style="padding: 14px 18px; color: #4B524C">Rkatsiteli, Mtsvane, Kisi, Saperavi</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/georgische-weine-graz/</td><td style="padding: 14px 18px; font-weight: 700">georgische Weine Graz</td><td style="padding: 14px 18px; color: #4B524C">Weinhandel Feldkirchen bei Graz, Abholung</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/georgische-weine-wien/</td><td style="padding: 14px 18px; font-weight: 700">georgische Weine Wien</td><td style="padding: 14px 18px; color: #4B524C">georgischer Wein Lieferung Wien</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 13px">/weingut-besuchen/</td><td style="padding: 14px 18px; font-weight: 700">Weinverkostung Kachetien</td><td style="padding: 14px 18px; color: #4B524C">Weingut Tour Georgien, Kakheti winery tour (EN)</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- 2 Meta-Daten -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">2 · Title &amp; Meta-Description</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #4B524C; font-weight: 700">Startseite · Google-Vorschau</span>
+<span style="color: #1A0DAB; font-size: 20px; line-height: 1.3">Georgischer Wein kaufen in Österreich | Bekauri Family Vineyards</span>
+<span style="color: #006621; font-size: 14px">bekauri-weinhandel.at</span>
+<span style="color: #4B524C; font-size: 15px">Saperavi, Kvevri-Weine &amp; Amber Wine direkt vom Familienweingut in Kachetien. Exklusiv in Österreich &amp; Deutschland – Weinhandel bei Graz. Jetzt online bestellen.</span>
+<span style="font-size: 13px; color: #4B524C">Title 60 Zeichen · Description ca. 155 Zeichen</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #4B524C; font-weight: 700">Produktseite · Vorlage</span>
+<span style="color: #1A0DAB; font-size: 20px; line-height: 1.3">[Weingut] [Wein] [Jahrgang] kaufen – georgischer [Weinart] | Bekauri</span>
+<span style="color: #006621; font-size: 14px">bekauri-weinhandel.at › weine › bekauri-saperavi-qvevri-2021</span>
+<span style="color: #4B524C; font-size: 15px">[Wein] [Jahrgang] von [Weingut], Kachetien. [Rebsorte], [Ausbau], 0,75 l für € [Preis]. Georgischer Wein exklusiv in Österreich &amp; Deutschland bestellen.</span>
+<span style="font-size: 13px; color: #4B524C">Platzhalter je Produkt automatisch befüllen</span>
+</div>
+</div>
+</section>
+
+<!-- 3 Überschriften -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">3 · Überschriften-Struktur der Startseite (umgesetzt)</h2>
+<ul style="margin: 0; padding: 24px 28px; list-style: none; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px">
+<li><strong>H1</strong> Georgischer Wein direkt vom Familienweingut.</li>
+<li style="padding-left: 24px"><strong>H2</strong> Familienweingut in Kachetien, Georgien → H3 Ein Familienbetrieb · Über Generationen · Der erste Jahrgang · Estate Grown &amp; Estate Bottled</li>
+<li style="padding-left: 24px"><strong>H2</strong> Georgische Weine online kaufen → H3 je Wein, z. B. „Saperavi Qvevri 2021“ (verlinkt auf Produktseite)</li>
+<li style="padding-left: 24px"><strong>H2</strong> Georgischer Wein erklärt: Rebsorten &amp; Kvevri → H3 Kvevri · Saperavi · Amber Wine · Rkatsiteli, Mtsvane &amp; Kisi</li>
+<li style="padding-left: 24px"><strong>H2</strong> Häufige Fragen zu georgischem Wein (5 Fragen, FAQPage-Schema)</li>
+<li style="padding-left: 24px"><strong>H2</strong> Weinverkostung &amp; Weingut-Tour in Kachetien</li>
+<li style="padding-left: 24px"><strong>H2</strong> Folgen Sie unserer Reise · Neuigkeiten aus Kachetien · Kontakt: Weinhandel bei Graz &amp; Weingut in Georgien</li>
+</ul>
+</section>
+
+<!-- 4 Strukturierte Daten -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">4 · Strukturierte Daten (JSON-LD)</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 17px">Weinhandel · LocalBusiness / Store</h3>
+<pre style="margin: 0; background: #141A16; color: #E6EAE3; border-radius: 18px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.55; overflow-x: auto; white-space: pre">{
+  "@context": "https://schema.org",
+  "@type": "LiquorStore",
+  "name": "Bekauri Weinhandel",
+  "legalName": "Nana Dubaeva e.U.",
+  "url": "https://www.bekauri-weinhandel.at/",
+  "email": "info@bekauri-weinhandel.at",
+  "telephone": "+43 676 411 77 99",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Gärtnerweg 4",
+    "postalCode": "8073",
+    "addressLocality": "Feldkirchen bei Graz",
+    "addressCountry": "AT"
+  },
+  "areaServed": ["AT", "DE"]
+}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 17px">Weingut · Winery</h3>
+<pre style="margin: 0; background: #141A16; color: #E6EAE3; border-radius: 18px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.55; overflow-x: auto; white-space: pre">{
+  "@context": "https://schema.org",
+  "@type": "Winery",
+  "name": "Bekauri Family Vineyards",
+  "url": "https://bekaurivineyards.com/",
+  "email": "info@bekaurivineyards.com",
+  "telephone": "+995 591 42 55 55",
+  "foundingDate": "2014",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Zemo Khodasheni, Akhmeta",
+    "postalCode": "0910",
+    "addressCountry": "GE"
+  },
+  "sameAs": [
+    "https://www.instagram.com/bekauri.vineyards/",
+    "https://www.facebook.com/bekauri.vineyards"
+  ]
+}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 17px">Produktseite · Product + Offer</h3>
+<pre style="margin: 0; background: #141A16; color: #E6EAE3; border-radius: 18px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.55; overflow-x: auto; white-space: pre">{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Bekauri Family Vineyards Saperavi Qvevri 2021",
+  "brand": { "@type": "Brand", "name": "Bekauri Family Vineyards" },
+  "sku": "[echte Artikelnummer]",
+  "image": "https://www.bekauri-weinhandel.at/[bild].webp",
+  "offers": {
+    "@type": "Offer",
+    "price": "19.00",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.bekauri-weinhandel.at/weine/bekauri-saperavi-qvevri-2021"
+  }
+}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 17px">Startseite · FAQPage (Auszug)</h3>
+<pre style="margin: 0; background: #141A16; color: #E6EAE3; border-radius: 18px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.55; overflow-x: auto; white-space: pre">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was ist Kvevri-Wein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kvevri-Wein wird in großen, eingegrabenen Tongefäßen vergoren ..."
+      }
+    }
+  ]
+}</pre>
+</div>
+</div>
+</section>
+
+<!-- 5 Gefundene Probleme -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">5 · Auf der aktuellen Seite gefunden – im Konzept behoben</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px">
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Keine H1:</strong> Die Startseite beginnt mit einer H2 („Bekauri Weinhandel Österreich“). → Jetzt eine H1 mit Hauptkeyword.</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Fehlerhafte Produktnamen &amp; URLs:</strong> z. B. „Chateau KveteraNoble Collection Kindzmarauli2023“. → Einheitliches Schema „Weingut Wein Jahrgang“.</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Platzhalter-SKUs:</strong> „SKU 00000“ usw. sichtbar. → Ausblenden bzw. echte Artikelnummern/GTIN pflegen.</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Logo verlinkt auf „/home-old“</strong> (Footer). → Auf „/“ verlinken, alte Seite per 301 weiterleiten.</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Englische Texte:</strong> Cookie-Banner, „Enter your email address“, „SUBSCRIBE NOW“. → Vollständig auf Deutsch.</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Kaum Text-Content:</strong> nur ein Absatz plus Produktliste. → Weinwissen, FAQ und Weingut-Story als indexierbarer Text.</div>
+</div>
+</section>
+
+<!-- 6 Technik -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">6 · Technisches SEO &amp; Domain-Strategie</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 18px">Domains</h3>
+<p style="margin: 0; color: #4B524C">Deutschsprachiger One-Pager und Shop auf <strong>bekauri-weinhandel.at</strong> (.at-Domain stärkt lokale Relevanz). <strong>bekaurivineyards.com</strong> bleibt die internationale Weingut-Seite (EN). Beide Seiten gegenseitig verlinken und per <code>hreflang</code> verbinden: de-AT, de-DE ↔ en. Keine doppelten Texte auf beiden Domains.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 18px">Checkliste</h3>
+<ul style="margin: 0; padding-left: 20px; color: #4B524C; display: flex; flex-direction: column; gap: 4px">
+<li>Canonical-Tag auf jeder Seite, Filter-URLs (?typ=rot) auf noindex oder canonical</li>
+<li>XML-Sitemap in der Search Console einreichen, robots.txt prüfen</li>
+<li>Warenkorb/Checkout auf noindex</li>
+<li>Bilder als WebP/AVIF, sprechende Dateinamen und Alt-Texte (im Design vermerkt)</li>
+<li>Schriften mit font-display: swap, Lazy Loading unterhalb des sichtbaren Bereichs</li>
+<li>Altersabfrage (18+) nicht als blockierendes Pop-up für den Googlebot</li>
+<li>Google-Unternehmensprofil für Feldkirchen bei Graz anlegen, Firmendaten überall identisch</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 7 Geo-Targeting -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">7 · Regionale Angebote (Österreich / Georgien)</h2>
+<p style="margin: 0; color: #4B524C">Die Startseite zeigt je nach Standort andere Angebote: aus Österreich und Deutschland die Shop-Aktionen mit Preisen in Euro, aus Georgien Touren, Ab-Hof-Angebote und die Partner in Tiflis. Sprache und Region sind getrennt: Georgisch Sprechende in Graz sehen die AT-Aktionen auf Georgisch.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 18px">So wird die Region erkannt</h3>
+<ol style="margin: 0; padding-left: 20px; color: #4B524C; display: flex; flex-direction: column; gap: 4px">
+<li>Manuelle Auswahl des Besuchers (Umschalter oben, als Cookie gespeichert) hat Vorrang.</li>
+<li>Sonst das Land der IP-Adresse am Server bzw. CDN, z. B. Header <code>CF-IPCountry</code> (Cloudflare) oder die Geo-Daten des Hostings: GE → Georgien, alle anderen → Österreich.</li>
+<li>Keine Speicherung der IP-Adresse, nur das Länderkürzel – datenschutzfreundlich.</li>
+</ol>
+<p style="margin: 0; color: #4B524C; font-size: 14px">Im Entwurf wird die Region ersatzweise über die Zeitzone des Geräts erkannt (Asia/Tbilisi → Georgien).</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 18px">Damit Google nicht leidet</h3>
+<ul style="margin: 0; padding-left: 20px; color: #4B524C; display: flex; flex-direction: column; gap: 4px">
+<li>Keine automatische Weiterleitung nach Standort – nur der Angebotsbereich wechselt, die URL bleibt gleich.</li>
+<li>Der Googlebot crawlt meist aus den USA und sieht daher die österreichische Fassung (Standard). Das ist gewollt: Shop und Hauptkeywords zielen auf AT/DE.</li>
+<li>Sprache über eigene URLs steuern (<code>/</code> = DE, <code>/ka/</code> = KA) mit <code>hreflang</code>, nicht über den Standort.</li>
+<li>Angebote für Georgien zusätzlich auf einer eigenen, indexierbaren Seite, z. B. <code>/ka/sakartvelo/</code>, damit sie auch in Google Georgien gefunden werden.</li>
+<li>Aktionen mit Start- und Enddatum im Shop-System pflegen; abgelaufene Aktionen automatisch ausblenden.</li>
+</ul>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

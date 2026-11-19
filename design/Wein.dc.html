@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Weinseite – Vorlage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="font-family: Manrope, system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6">
+
+<!-- Header -->
+<header style="background: #141A16; color: #FAFAF7">
+<div style="max-width: 1280px; margin: 0 auto; padding: 14px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<a href="Main.dc.html" class="logo-link" aria-label="Bekauri Family Vineyards – Startseite" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #FAFAF7">
+<img src="/_blob/2fdad768f1a061b16aa7e24bff4015b3" alt="" class="logo-crest" style="height: 56px; width: auto">
+<span style="display: flex; flex-direction: column; line-height: 1">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 600; letter-spacing: 0.08em">BEKAURI</span>
+<span style="font-size: 10px; letter-spacing: 0.3em; margin-top: 5px; color: #C9D0C5">FAMILY VINEYARDS</span>
+</span>
+</a>
+<nav aria-label="Hauptnavigation" style="display: flex; flex-wrap: wrap; gap: 4px 30px; font-size: 15px">
+<a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Georgische Weine</a>
+<a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Weinwissen</a>
+<a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Weingut</a>
+<a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Kontakt</a>
+</nav>
+<a href="#" class="btn btn-light" aria-label="Warenkorb, {{cartCount}} Artikel" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #141A16; background: #FAFAF7; border-radius: 999px; padding: 10px 16px; min-height: 44px; box-sizing: border-box">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141A16" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+<span style="font-weight: 700">{{cartCount}}</span>
+</a>
+</div>
+</header>
+
+<!-- Breadcrumb -->
+<nav aria-label="Brotkrumen" style="max-width: 1280px; margin: 0 auto; padding: 22px 28px 0; font-size: 14px; color: #4B524C">
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 10px">
+<li><a href="Main.dc.html" style="color: #4B524C">Startseite</a> ›</li>
+<li><a href="Main.dc.html" style="color: #4B524C">Georgische Weine</a> ›</li>
+<li><a href="Main.dc.html" style="color: #4B524C">{{w.estate}}</a> ›</li>
+<li aria-current="page" style="color: #141A16; font-weight: 600">{{w.name}} {{w.year}}</li>
+</ol>
+</nav>
+
+<!-- Produkt -->
+<section style="padding: 32px 28px 88px">
+<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 56px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="background: {{w.bg}}; border-radius: 32px; height: 640px; display: flex; align-items: center; justify-content: center; position: relative">
+<span style="position: absolute; top: 20px; left: 20px; background: #FAFAF7; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">Bildplatz · Flaschenfoto {{w.slug}}.webp</span>
+<sc-if value="{{w.own}}" hint-placeholder-val="{{ true }}">
+<img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="Eigener Wein von Bekauri Family Vineyards" style="position: absolute; top: 16px; right: 20px; width: 56px; height: auto">
+</sc-if>
+<svg class="bottle" role="img" aria-label="{{w.alt}}" viewBox="0 0 60 200" style="width: 128px; height: 428px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{w.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/><rect x="20" y="128" width="20" height="3" fill="#141A16"/><rect x="22" y="136" width="16" height="2" fill="#7A817B"/></svg>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+<div style="background: #ECE8E1; border-radius: 18px; height: 120px; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; font-weight: 700; color: #4B524C">Etikett</div>
+<div style="background: #ECE8E1; border-radius: 18px; height: 120px; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; font-weight: 700; color: #4B524C">Im Glas</div>
+<div style="background: #ECE8E1; border-radius: 18px; height: 120px; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; font-weight: 700; color: #4B524C">Weinberg</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 24px; padding-top: 8px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{w.estate}}</span>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(44px, 5vw, 72px); line-height: 1">{{w.name}} {{w.year}}</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: #141A16; color: #FAFAF7">{{w.kind}}</span>
+<span style="font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: #ECE8E1">{{w.taste}}</span>
+<span style="font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: #ECE8E1">{{w.grape}}</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 19px; color: #3A413B">{{w.lead}}</p>
+<div style="display: flex; align-items: baseline; gap: 12px">
+<span style="font-size: 40px; font-weight: 700; line-height: 1">€ {{w.price}}</span>
+<span style="color: #4B524C; font-size: 14px">0,75 l · {{w.perLiter}} · inkl. MwSt.</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+<div role="group" aria-label="Menge" style="display: flex; align-items: center; border: 1px solid #C9C3B8; border-radius: 999px; background: #FFFFFF">
+<button type="button" onClick="{{dec}}" aria-label="Menge verringern" style="font: inherit; font-size: 22px; width: 52px; height: 52px; border: 0; background: transparent; cursor: pointer; border-radius: 999px">−</button>
+<span aria-live="polite" style="min-width: 36px; text-align: center; font-weight: 700; font-size: 18px">{{qty}}</span>
+<button type="button" onClick="{{inc}}" aria-label="Menge erhöhen" style="font: inherit; font-size: 22px; width: 52px; height: 52px; border: 0; background: transparent; cursor: pointer; border-radius: 999px">+</button>
+</div>
+<button type="button" onClick="{{add}}" class="btn btn-dark" style="flex: 1 1 240px; font: inherit; font-weight: 700; font-size: 17px; background: #141A16; color: #FAFAF7; border: 0; border-radius: 999px; padding: 15px 28px; min-height: 52px; cursor: pointer">{{addLabel}}</button>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 15px">
+<li style="display: flex; gap: 10px; align-items: center; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 16px; padding: 14px 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E4A33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{w.origin}}</li>
+<li style="display: flex; gap: 10px; align-items: center; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 16px; padding: 14px 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E4A33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg>Exklusiv in AT &amp; DE</li>
+<li style="display: flex; gap: 10px; align-items: center; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 16px; padding: 14px 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E4A33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Beratung: +43 676 411 77 99</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Beschreibung & Steckbrief -->
+<section style="background: #ECE8E1; padding: 88px 28px">
+<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 56px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.05">Über diesen Wein</h2>
+<p style="margin: 0; font-size: 18px; color: #3A413B">{{w.desc}}</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 18px">Verkostungsnotiz</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="border: 1.5px dashed #B8B0A3; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #A84A2E">Farbe</span><span style="color: #4B524C">[vom Weingut ergänzen]</span></div>
+<div style="border: 1.5px dashed #B8B0A3; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #A84A2E">Nase</span><span style="color: #4B524C">[vom Weingut ergänzen]</span></div>
+<div style="border: 1.5px dashed #B8B0A3; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #A84A2E">Gaumen</span><span style="color: #4B524C">[vom Weingut ergänzen]</span></div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<div style="background: #FAFAF7; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px">
+<span style="display: flex; gap: 8px; align-items: center; font-weight: 700"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A84A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M6 11a6 6 0 0 0 12 0M9 4v4M12 3v5M15 4v4"/></svg>Passt zu</span>
+<span style="color: #4B524C">{{w.food}}</span>
+</div>
+<div style="background: #FAFAF7; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px">
+<span style="display: flex; gap: 8px; align-items: center; font-weight: 700"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A84A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 1 0-4 0v10.8a4 4 0 1 0 4 0z"/></svg>Trinktemperatur</span>
+<span style="color: #4B524C">{{w.temp}} (Empfehlung)</span>
+</div>
+</div>
+</div>
+<div style="background: #FAFAF7; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 32px">Steckbrief</h2>
+<dl style="margin: 0; display: flex; flex-direction: column">
+<sc-for list="{{facts}}" as="f" hint-placeholder-count="9">
+<div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid #E2DDD4">
+<dt style="color: #4B524C; font-weight: 500">{{f.k}}</dt>
+<dd style="margin: 0; font-weight: 600">{{f.v}}</dd>
+</div>
+</sc-for>
+</dl>
+</div>
+</div>
+</section>
+
+<!-- Video -->
+<section style="background: #141A16; color: #FAFAF7; padding: 96px 28px">
+<div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #E39A7E; font-weight: 700">Weinpräsentation</p>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 56px); line-height: 1.05">{{w.name}} {{w.year}} im Video</h2>
+</div>
+<div style="position: relative; aspect-ratio: 16 / 9; background: #1E2820; border: 1px solid #2C382F; border-radius: 28px; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<span style="position: absolute; top: 18px; left: 18px; background: #FAFAF7; color: #141A16; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">Videoplatz · YouTube, Vimeo oder MP4</span>
+<sc-if value="{{notPlaying}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 16px">
+<button type="button" onClick="{{play}}" class="btn btn-primary" aria-label="Video zu {{w.name}} {{w.year}} abspielen" style="width: 96px; height: 96px; border-radius: 999px; border: 0; background: #A84A2E; cursor: pointer; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>
+</button>
+<span style="color: #C9D0C5">ca. 2–3 Minuten</span>
+</div>
+</sc-if>
+<sc-if value="{{playing}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 24px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px">Hier läuft später die Weinpräsentation.</span>
+<button type="button" onClick="{{stop}}" class="btn btn-ghost" style="font: inherit; font-weight: 600; color: #FAFAF7; background: transparent; border: 1px solid #5B6B5F; border-radius: 999px; padding: 12px 24px; min-height: 44px; cursor: pointer">Schließen</button>
+</div>
+</sc-if>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="border: 1px solid #2C382F; border-radius: 999px; padding: 8px 16px; font-size: 14px">00:00 Herkunft &amp; Weingut</span>
+<span style="border: 1px solid #2C382F; border-radius: 999px; padding: 8px 16px; font-size: 14px">00:40 Rebsorte &amp; Ausbau</span>
+<span style="border: 1px solid #2C382F; border-radius: 999px; padding: 8px 16px; font-size: 14px">01:20 Verkostung</span>
+<span style="border: 1px solid #2C382F; border-radius: 999px; padding: 8px 16px; font-size: 14px">02:10 Speiseempfehlung</span>
+</div>
+</div>
+</section>
+
+<!-- Weitere Weine -->
+<section style="padding: 96px 28px">
+<div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.05">Weitere Weine von {{w.estate}}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<sc-for list="{{related}}" as="r" hint-placeholder-count="3">
+<a href="{{r.page}}" class="wine-card" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+<div style="background: {{r.bg}}; border-radius: 24px; height: 300px; display: flex; align-items: center; justify-content: center">
+<svg class="bottle" aria-hidden="true" viewBox="0 0 60 200" style="width: 64px; height: 214px"><path d="M24 0h12v10h-1v40c0 8 17 18 17 34v108c0 4-3 8-8 8H16c-5 0-8-4-8-8V84c0-16 17-26 17-34V10h-1z" fill="{{r.color}}"/><rect x="23" y="0" width="14" height="24" rx="2" fill="#141A16"/><rect x="12" y="116" width="36" height="50" rx="2" fill="#FAFAF7"/></svg>
+</div>
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 26px; line-height: 1.1">{{r.name}} {{r.year}}</span>
+<span style="font-weight: 700">€ {{r.price}}</span>
+</a>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; border-top: 1px solid #E2DDD4">
+<a href="{{prev.page}}" style="font-weight: 700; padding: 12px 0">← {{prev.label}}</a>
+<a href="{{next.page}}" style="font-weight: 700; padding: 12px 0">{{next.label}} →</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="background: #0E1310; color: #C9D0C5; font-size: 14px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
+<span>© 2026 Bekauri Family Vineyards · Bekauri Weinhandel, Gärtnerweg 4, 8073 Feldkirchen bei Graz · Abgabe nur ab 18 Jahren</span>
+<nav aria-label="Rechtliches" style="display: flex; flex-wrap: wrap; gap: 8px 20px">
+<a href="#" style="color: #C9D0C5">AGB</a>
+<a href="#" style="color: #C9D0C5">Widerrufsrecht</a>
+<a href="#" style="color: #C9D0C5">Impressum</a>
+</nav>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"wineId":{"editor":"enum","default":"bekauri-saperavi-qvevri-2021","options":["bekauri-saperavi-qvevri-2021","bekauri-mtsvane-2023","bekauri-kindzmarauli-2022","bekauri-rose-2023","bekauri-kisi-2022","bekauri-mukuzani-reserve-2020","bekauri-saperavi-2022","kopisa-mtsvane-2021","kopisa-amber-2019","kopisa-rose-2023","kopisa-kisi-2020","kopisa-alazani-valley-2020","kopisa-alazani-valley-rot-2020","kopisa-saperavi-2019","kvetera-noble-collection-kindzmarauli-2023","kvetera-noble-collection-reserve-2020","kvetera-traditional-2020","kvetera-noble-collection-signature-red-2023"]},"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { qty: 1, cart: 0, added: false, playing: false };
+  }
+  renderVals() {
+    var self = this;
+    var STYLE = {
+      rot:   { color: '#4A1420', bg: '#EFE6E3', kind: 'Rotwein', food: 'Lamm, Schmorgerichte, Gegrilltes, kräftiger Käse', temp: '16–18 °C' },
+      rotsuess: { color: '#5A1626', bg: '#EFE6E3', kind: 'Rotwein', food: 'Desserts mit dunklen Beeren, Nüsse, würziger Käse', temp: '12–14 °C' },
+      weiss: { color: '#C9B86A', bg: '#EEEDE2', kind: 'Weißwein', food: 'Fisch, Geflügel, Salate, junger Käse', temp: '8–10 °C' },
+      weisssuess: { color: '#D2BE6E', bg: '#EEEDE2', kind: 'Weißwein', food: 'Obstdesserts, Blauschimmelkäse, asiatische Küche', temp: '8–10 °C' },
+      rose:  { color: '#E2A196', bg: '#F3E8E3', kind: 'Roséwein', food: 'Antipasti, Sommerküche, Lachs', temp: '8–10 °C' },
+      amber: { color: '#C98A3A', bg: '#F1E8DA', kind: 'Amber Wine', food: 'Würzige Gerichte, Pilze, Grillgemüse, gereifter Käse', temp: '12–14 °C' }
+    };
+    var EST = {
+      bekauri: { name: 'Bekauri Family Vineyards', origin: 'Kachetien, Georgien' },
+      kopisa: { name: 'Kopisa Family Vineyards', origin: 'Georgien' },
+      kvetera: { name: 'Chateau Kvetera', origin: 'Georgien' }
+    };
+    var D = {
+      saperavi: 'Saperavi ist Georgiens wichtigste rote Rebsorte und eine der wenigen Trauben mit rotem Fruchtfleisch. Sie ergibt tiefdunkle Weine mit kräftiger Struktur.',
+      qvevri: 'Vergoren und ausgebaut im Qvevri (Kvevri), dem traditionellen, in die Erde eingelassenen Tongefäß – einer Methode, die seit 2013 zum immateriellen UNESCO-Kulturerbe zählt.',
+      kindz: 'Kindzmarauli ist eine geschützte Herkunftsbezeichnung aus Kachetien für natürlich lieblichen Rotwein aus Saperavi: Die Gärung wird gestoppt, bevor der gesamte Zucker vergoren ist.',
+      mukuz: 'Mukuzani ist eine Herkunftsbezeichnung aus Kachetien für trockene Rotweine aus Saperavi, die traditionell im Holzfass reifen.',
+      mtsvane: 'Mtsvane (Mtsvane Kachuri) ist eine klassische weiße Rebsorte Kachetiens, bekannt für frische, aromatische Weißweine.',
+      kisi: 'Kisi ist eine autochthone weiße Rebsorte aus Kachetien, die lange fast vergessen war und heute wieder vermehrt angebaut wird.',
+      amber: 'Amber Wine ist Weißwein, der wie Rotwein mit den Schalen vergoren wird. Daher stammen seine bernsteinfarbene Farbe, spürbare Tannine und seine Struktur.',
+      alazani: 'Alazani Valley ist ein in Georgien verbreiteter Weinstil: halbsüße Weine aus Trauben des Alazani-Tals in Kachetien.',
+      rose: 'Ein frischer Roséwein aus Georgien.',
+      tbd: '[Beschreibung vom Weingut ergänzen: Rebsorte(n), Ausbau, Lage.]'
+    };
+    var W = [
+      ['bekauri-saperavi-qvevri-2021','bekauri','Saperavi Qvevri','2021','19,00',19,'rot','Saperavi','trocken (lt. Etikett prüfen)', D.saperavi + ' ' + D.qvevri, 'Kvevri-Wein'],
+      ['bekauri-mtsvane-2023','bekauri','Mtsvane','2023','19,00',19,'weiss','Mtsvane','[lt. Etikett]', D.mtsvane, ''],
+      ['bekauri-kindzmarauli-2022','bekauri','Kindzmarauli','2022','19,00',19,'rotsuess','Saperavi','lieblich', D.kindz, ''],
+      ['bekauri-rose-2023','bekauri','Rosé','2023','19,00',19,'rose','[Rebsorte]','[lt. Etikett]', D.rose + ' ' + D.tbd, ''],
+      ['bekauri-kisi-2022','bekauri','Kisi','2022','22,50',22.5,'weiss','Kisi','[lt. Etikett]', D.kisi, ''],
+      ['bekauri-mukuzani-reserve-2020','bekauri','Mukuzani Reserve','2020','23,50',23.5,'rot','Saperavi','trocken', D.mukuz, 'Reserve'],
+      ['bekauri-saperavi-2022','bekauri','Saperavi','2022','19,00',19,'rot','Saperavi','[lt. Etikett]', D.saperavi, ''],
+      ['kopisa-mtsvane-2021','kopisa','Mtsvane','2021','15,00',15,'weiss','Mtsvane','[lt. Etikett]', D.mtsvane, ''],
+      ['kopisa-amber-2019','kopisa','Amber','2019','15,00',15,'amber','[Rebsorte]','[lt. Etikett]', D.amber, ''],
+      ['kopisa-rose-2023','kopisa','Rosé','2023','15,00',15,'rose','[Rebsorte]','[lt. Etikett]', D.rose + ' ' + D.tbd, ''],
+      ['kopisa-kisi-2020','kopisa','Kisi','2020','15,00',15,'amber','Kisi','[lt. Etikett]', D.kisi, ''],
+      ['kopisa-alazani-valley-2020','kopisa','Alazani Valley','2020','15,00',15,'weisssuess','[Rebsorte]','halbsüß', D.alazani, ''],
+      ['kopisa-alazani-valley-rot-2020','kopisa','Alazani Valley Rot','2020','15,00',15,'rotsuess','[Rebsorte]','halbsüß', D.alazani, ''],
+      ['kopisa-saperavi-2019','kopisa','Saperavi','2019','15,00',15,'rot','Saperavi','[lt. Etikett]', D.saperavi, ''],
+      ['kvetera-noble-collection-kindzmarauli-2023','kvetera','Noble Collection Kindzmarauli','2023','30,00',30,'rotsuess','Saperavi','lieblich', D.kindz, ''],
+      ['kvetera-noble-collection-reserve-2020','kvetera','Noble Collection Reserve','2020','33,00',33,'rot','[Rebsorte]','[lt. Etikett]', D.tbd, 'Reserve'],
+      ['kvetera-traditional-2020','kvetera','Traditional','2020','33,00',33,'weiss','[Rebsorte]','[lt. Etikett]', D.tbd, ''],
+      ['kvetera-noble-collection-signature-red-2023','kvetera','Noble Collection Signature Red','2023','30,00',30,'rot','[Rebsorte]','[lt. Etikett]', D.tbd, '']
+    ];
+    var list = W.map(function (r) {
+      var s = STYLE[r[6]], e = EST[r[1]];
+      var perL = (r[5] / 0.75).toFixed(2).replace('.', ',');
+      return {
+        id: r[0], est: r[1], estate: e.name, origin: e.origin, own: r[1] === 'bekauri',
+        name: r[2], year: r[3], price: r[4], perLiter: '€ ' + perL + ' / l',
+        grape: r[7], taste: r[8], desc: r[9], extra: r[10],
+        kind: s.kind, color: s.color, bg: s.bg, food: s.food, temp: s.temp,
+        slug: r[0], page: 'wein-' + r[0] + '.dc.html',
+        alt: 'Flasche ' + e.name + ' ' + r[2] + ' ' + r[3] + ' – georgischer ' + s.kind,
+        lead: 'Georgischer ' + s.kind + ' von ' + e.name + ' aus dem Jahrgang ' + r[3] + '.'
+      };
+    });
+    var id = this.props.wineId ?? 'bekauri-saperavi-qvevri-2021';
+    var idx = 0;
+    list.forEach(function (x, i) { if (x.id === id) idx = i; });
+    var w = list[idx];
+    var prevW = list[(idx - 1 + list.length) % list.length];
+    var nextW = list[(idx + 1) % list.length];
+    var related = list.filter(function (x) { return x.est === w.est && x.id !== w.id; }).slice(0, 3);
+    var facts = [
+      { k: 'Weingut', v: w.estate },
+      { k: 'Herkunft', v: w.origin },
+      { k: 'Rebsorte', v: w.grape },
+      { k: 'Weinart', v: w.kind },
+      { k: 'Geschmack', v: w.taste },
+      { k: 'Jahrgang', v: w.year },
+      { k: 'Füllmenge', v: '0,75 l' },
+      { k: 'Alkohol', v: '[lt. Etikett] % vol.' },
+      { k: 'Allergene', v: 'Enthält Sulfite' }
+    ];
+    if (w.extra) facts.splice(4, 0, { k: 'Ausbau', v: w.extra });
+    var qty = this.state.qty;
+    return {
+      w: w,
+      facts: facts,
+      related: related,
+      prev: { page: prevW.page, label: prevW.name + ' ' + prevW.year },
+      next: { page: nextW.page, label: nextW.name + ' ' + nextW.year },
+      qty: qty,
+      cartCount: this.state.cart,
+      addLabel: this.state.added ? 'Im Warenkorb ✓ – noch mehr hinzufügen' : 'In den Warenkorb',
+      dec: function () { self.setState({ qty: Math.max(1, self.state.qty - 1) }); },
+      inc: function () { self.setState({ qty: Math.min(36, self.state.qty + 1) }); },
+      add: function () { self.setState({ cart: self.state.cart + self.state.qty, added: true }); },
+      playing: this.state.playing,
+      notPlaying: !this.state.playing,
+      play: function () { self.setState({ playing: true }); },
+      stop: function () { self.setState({ playing: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
