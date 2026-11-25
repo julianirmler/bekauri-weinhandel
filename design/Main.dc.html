@@ -12,6 +12,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@500;600&display=swap" rel="stylesheet">
 <style>
 body{margin:0}
+html{-webkit-text-size-adjust:100%}
+h1,h2,h3,h4,h5{overflow-wrap:break-word}
+@media (max-width: 1023px){
+.nav-desktop{gap:4px 18px!important;font-size:14px!important}
+}
+@media (max-width: 599px){
+section[id]{scroll-margin-top:72px}
+.topbar,.nav-desktop,.hide-m{display:none!important}
+.menu-btn{display:inline-flex!important}
+.logo-crest{height:44px!important}
+.hero-panel{min-height:320px!important}
+.hero-crest,.crest-img{width:190px!important}
+.hero-crest{animation:none!important}
+.hero-ctas a{flex:1 1 100%;text-align:center}
+.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.stats .rv{padding:22px 12px 22px 0!important}
+.tl-row{grid-template-columns:minmax(0,1fr)!important;gap:4px!important}
+.chips{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:2px 16px 6px}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;white-space:nowrap}
+.wine-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 12px!important}
+.wine-img{height:240px!important}
+.wine-img svg.bottle{height:180px!important;width:54px!important}
+.card-title{font-size:20px!important}
+.card-foot{flex-direction:column;align-items:stretch!important;gap:8px!important}
+.card-foot .btn{width:100%;text-align:center;justify-content:center;padding:11px 10px!important}
+.insta{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.insta > div{height:160px!important}
+}
+@media (min-width: 600px){
+.mobile-menu{display:none!important}
+}
 a{color:#141A16}a:hover{color:#A84A2E}
 section[id]{scroll-margin-top:96px}
 .serif{font-family:'Cormorant Garamond','Noto Serif Georgian',Georgia,serif}
@@ -65,12 +97,12 @@ html{scroll-behavior:smooth}
 }
 </style>
 </helmet>
-<div lang="{{lang}}" style="font-family: Manrope, 'Noto Sans Georgian', system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6">
+<div lang="{{lang}}" style="font-family: Manrope, 'Noto Sans Georgian', system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6; overflow-x: clip">
 <div class="progress" aria-hidden="true" style="position: fixed; top: 0; left: 0; right: 0; height: 3px; background: #A84A2E; transform-origin: 0 50%; z-index: 60"></div>
 
 <!-- Topbar -->
-<div style="background: #0E1310; color: #D9DED6; font-size: 13px">
-<div style="max-width: 1280px; margin: 0 auto; padding: 9px 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px">
+<div class="topbar" style="background: #0E1310; color: #D9DED6; font-size: 13px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 9px clamp(16px, 4vw, 28px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px">
 <div role="group" aria-label="{{r.switchLabel}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
 <span>{{r.switchLabel}}</span>
 <sc-for list="{{regions}}" as="g" hint-placeholder-count="2">
@@ -86,7 +118,7 @@ html{scroll-behavior:smooth}
 
 <!-- Header -->
 <header class="hdr" style="background: #141A16; color: #FAFAF7; position: sticky; top: 0; z-index: 40">
-<div style="max-width: 1280px; margin: 0 auto; padding: 14px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 28px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
 <a href="#top" class="logo-link" aria-label="{{t.homeLabel}}" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #FAFAF7">
 <img src="/_blob/2fdad768f1a061b16aa7e24bff4015b3" alt="" class="logo-crest" style="height: 60px; width: auto">
 <span style="display: flex; flex-direction: column; line-height: 1">
@@ -94,7 +126,7 @@ html{scroll-behavior:smooth}
 <span style="font-size: 10px; letter-spacing: 0.3em; margin-top: 5px; color: #C9D0C5">FAMILY VINEYARDS</span>
 </span>
 </a>
-<nav aria-label="{{t.navLabel}}" style="display: flex; flex-wrap: wrap; gap: 4px 30px; font-size: 15px">
+<nav class="nav-desktop" aria-label="{{t.navLabel}}" style="display: flex; flex-wrap: wrap; gap: 4px 30px; font-size: 15px">
 <a href="#shop" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">{{t.nav1}}</a>
 <a href="#wissen" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">{{t.nav2}}</a>
 <a href="#weingut" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">{{t.nav3}}</a>
@@ -102,7 +134,7 @@ html{scroll-behavior:smooth}
 <a href="#kontakt" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">{{t.nav5}}</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 10px">
-<div role="group" aria-label="Sprache / ენა" style="display: flex; gap: 4px; border: 1px solid #3C4A40; border-radius: 999px; padding: 3px">
+<div class="hide-m" role="group" aria-label="Sprache / ენა" style="display: flex; gap: 4px; border: 1px solid #3C4A40; border-radius: 999px; padding: 3px">
 <sc-for list="{{langs}}" as="l" hint-placeholder-count="2">
 <button type="button" class="btn btn-lang" onClick="{{l.pick}}" aria-pressed="{{l.pressed}}" aria-label="{{l.name}}" lang="{{l.code}}" style="{{l.style}}">{{l.label}}</button>
 </sc-for>
@@ -111,28 +143,60 @@ html{scroll-behavior:smooth}
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141A16" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
 <span style="font-weight: 700">0</span>
 </a>
+<button type="button" class="menu-btn" onClick="{{toggleMenu}}" aria-expanded="{{menuExpanded}}" aria-controls="mobile-menu" aria-label="{{t.menuLabel}}" style="display: none; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #3C4A40; background: transparent; color: #FAFAF7; cursor: pointer; align-items: center; justify-content: center">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></sc-if>
+</button>
 </div>
 </div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div id="mobile-menu" class="mobile-menu" style="border-top: 1px solid #2C382F; padding: 8px 16px 20px; display: flex; flex-direction: column; gap: 4px">
+<nav aria-label="{{t.navLabel}}" style="display: flex; flex-direction: column">
+<a href="#shop" onClick="{{closeMenu}}" style="color: #FAFAF7; text-decoration: none; font-size: 18px; padding: 12px 0; border-bottom: 1px solid #2C382F">{{t.nav1}}</a>
+<a href="#wissen" onClick="{{closeMenu}}" style="color: #FAFAF7; text-decoration: none; font-size: 18px; padding: 12px 0; border-bottom: 1px solid #2C382F">{{t.nav2}}</a>
+<a href="#weingut" onClick="{{closeMenu}}" style="color: #FAFAF7; text-decoration: none; font-size: 18px; padding: 12px 0; border-bottom: 1px solid #2C382F">{{t.nav3}}</a>
+<a href="#besuch" onClick="{{closeMenu}}" style="color: #FAFAF7; text-decoration: none; font-size: 18px; padding: 12px 0; border-bottom: 1px solid #2C382F">{{t.nav4}}</a>
+<a href="#kontakt" onClick="{{closeMenu}}" style="color: #FAFAF7; text-decoration: none; font-size: 18px; padding: 12px 0; border-bottom: 1px solid #2C382F">{{t.nav5}}</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center; padding-top: 14px">
+<div role="group" aria-label="Sprache / ენა" style="display: flex; gap: 4px; border: 1px solid #3C4A40; border-radius: 999px; padding: 3px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="2">
+<button type="button" class="btn btn-lang" onClick="{{l.pick}}" aria-pressed="{{l.pressed}}" aria-label="{{l.name}}" lang="{{l.code}}" style="{{l.style}}">{{l.label}}</button>
+</sc-for>
+</div>
+<div role="group" aria-label="{{r.switchLabel}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="font-size: 13px; color: #C9D0C5">{{r.switchLabel}}</span>
+<sc-for list="{{regions}}" as="g" hint-placeholder-count="2">
+<button type="button" class="btn btn-lang" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}" style="{{g.style}}">{{g.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding-top: 14px; font-size: 14px">
+<a href="tel:+436764117799" style="color: #D9DED6; padding: 6px 0">AT +43 676 411 77 99</a>
+<a href="tel:+995591425555" style="color: #D9DED6; padding: 6px 0">GE +995 591 42 55 55</a>
+</div>
+</div>
+</sc-if>
 </header>
 
 <!-- Hero -->
 <section id="top" style="background: #141A16; color: #FAFAF7">
-<div style="max-width: 1280px; margin: 0 auto; padding: 72px 28px 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 56px; align-items: center">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(36px, 5.0vw, 72px) clamp(16px, 4vw, 28px) clamp(48px, 6.67vw, 96px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(28px, 3.89vw, 56px); align-items: center">
 <div style="display: flex; flex-direction: column; gap: 28px">
 <p class="in1" style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #E39A7E; font-weight: 700">{{t.heroKicker}}</p>
-<h1 class="in2 serif" style="margin: 0; font-weight: 500; font-size: clamp(46px, 6vw, 88px); line-height: 0.98; letter-spacing: -0.01em">{{t.heroH1a}}<br><em style="font-style: italic; color: #E8C9A8">{{t.heroH1b}}</em></h1>
+<h1 class="in2 serif" style="margin: 0; font-weight: 500; font-size: clamp(36px, 6vw, 88px); line-height: 0.98; letter-spacing: -0.01em">{{t.heroH1a}}<br><em style="font-style: italic; color: #E8C9A8">{{t.heroH1b}}</em></h1>
 <p class="in3" style="margin: 0; font-size: 19px; color: #C9D0C5; max-width: 560px">{{t.heroP}}</p>
-<div class="in4" style="display: flex; flex-wrap: wrap; gap: 12px">
+<div class="in4 hero-ctas" style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="{{r.cta1href}}" class="btn btn-primary" style="background: #A84A2E; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 16px 30px; border-radius: 999px">{{r.cta1}}</a>
 <a href="#besuch" class="btn btn-ghost" style="border: 1px solid #5B6B5F; color: #FAFAF7; text-decoration: none; font-weight: 600; padding: 15px 30px; border-radius: 999px">{{t.heroBtn2}}</a>
 </div>
 </div>
-<div class="in-panel" style="position: relative; background: #1E2820; border: 1px solid #2C382F; border-radius: 32px; min-height: 600px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 28px; box-sizing: border-box">
+<div class="in-panel hero-panel" style="position: relative; background: #1E2820; border: 1px solid #2C382F; border-radius: 32px; min-height: 600px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(16px, 4vw, 28px); box-sizing: border-box">
 <span style="align-self: flex-start; background: #FAFAF7; color: #141A16; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">{{t.heroImg}}</span>
 <div style="display: flex; justify-content: center">
 <div class="hero-crest" style="position: relative; width: 300px">
 <div class="crest-in" style="position: relative">
-<img src="/_blob/2fdad768f1a061b16aa7e24bff4015b3" alt="{{t.crestAlt}}" style="display: block; width: 300px; height: auto">
+<img src="/_blob/2fdad768f1a061b16aa7e24bff4015b3" alt="{{t.crestAlt}}" class="crest-img" style="display: block; width: 300px; height: auto">
 <div class="crest-shine" aria-hidden="true" style="position: absolute; inset: 0"></div>
 </div>
 </div>
@@ -147,10 +211,10 @@ html{scroll-behavior:smooth}
 
 <!-- Kennzahlen -->
 <section aria-label="{{t.statsLabel}}" style="background: #ECE8E1">
-<div style="max-width: 1280px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
+<div class="stats" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr))">
 <sc-for list="{{t.stats}}" as="s" hint-placeholder-count="4">
-<div class="rv" style="padding: 36px 24px 36px 0; display: flex; flex-direction: column; gap: 2px">
-<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 60px; font-weight: 600; line-height: 1">{{s.n}}</span>
+<div class="rv" style="padding: clamp(18px, 2.5vw, 36px) 24px clamp(18px, 2.5vw, 36px) 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(38px, 4.2vw, 60px); font-weight: 600; line-height: 1">{{s.n}}</span>
 <span style="color: #4B524C; font-weight: 500">{{s.l}}</span>
 </div>
 </sc-for>
@@ -158,18 +222,18 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- Regionale Angebote -->
-<section id="angebote" style="padding: 104px 28px 0">
+<section id="angebote" style="padding: clamp(52px, 7.22vw, 104px) clamp(16px, 4vw, 28px) 0">
 <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: end">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: end">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{r.kicker}}</p>
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{r.h2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{r.h2}}</h2>
 </div>
 <p style="margin: 0; color: #4B524C; max-width: 540px">{{r.p}}</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px">
 <sc-for list="{{r.offers}}" as="o" hint-placeholder-count="3">
-<article class="rv" style="background: {{o.bg}}; color: {{o.fg}}; border-radius: 28px; padding: 32px; min-height: 300px; display: flex; flex-direction: column; gap: 14px">
+<article class="rv" style="background: {{o.bg}}; color: {{o.fg}}; border-radius: 28px; padding: clamp(16px, 2.22vw, 32px); min-height: 300px; display: flex; flex-direction: column; gap: 14px">
 <span style="align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; background: {{o.badgeBg}}; color: {{o.badgeFg}}">{{o.badge}}</span>
 <h3 class="serif" style="margin: 0; font-size: 30px; font-weight: 600; line-height: 1.12">{{o.h}}</h3>
 <p style="margin: 0; opacity: 0.85">{{o.p}}</p>
@@ -181,9 +245,9 @@ html{scroll-behavior:smooth}
 </sc-for>
 </div>
 <sc-if value="{{isGE}}" hint-placeholder-val="{{ false }}">
-<div class="rv" style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
+<div class="rv" style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 28px; padding: clamp(16px, 2.22vw, 32px); display: flex; flex-direction: column; gap: 18px">
 <h3 class="serif" style="margin: 0; font-size: 30px; font-weight: 600">{{r.partnersH}}</h3>
-<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px 24px">
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 24px">
 <sc-for list="{{r.partners}}" as="pt" hint-placeholder-count="8">
 <li style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid #ECE8E1">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A84A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
@@ -197,11 +261,11 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- Weingut / Geschichte -->
-<section id="weingut" style="padding: 112px 28px">
-<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 64px">
+<section id="weingut" style="padding: clamp(56px, 7.78vw, 112px) clamp(16px, 4vw, 28px)">
+<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 4.44vw, 64px)">
 <div style="display: flex; flex-direction: column; gap: 24px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{t.storyKicker}}</p>
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{t.storyH2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{t.storyH2}}</h2>
 <p style="margin: 0; color: #4B524C; font-size: 18px">{{t.storyP}}</p>
 <div class="rv-scale" style="background: #ECE8E1; border-radius: 28px; min-height: 340px; display: flex; align-items: flex-end; padding: 24px; box-sizing: border-box">
 <span style="background: #FAFAF7; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">{{t.storyImg}}</span>
@@ -209,7 +273,7 @@ html{scroll-behavior:smooth}
 </div>
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-bottom: 1px solid #D9D4CB">
 <sc-for list="{{t.timeline}}" as="i" hint-placeholder-count="4">
-<li class="rv-left" style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding: 28px 0; border-top: 1px solid #D9D4CB">
+<li class="rv-left tl-row" style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding: clamp(16px, 4vw, 28px) 0; border-top: 1px solid #D9D4CB">
 <span class="serif" style="font-size: 30px; font-weight: 600; color: #A84A2E">{{i.k}}</span>
 <div style="display: flex; flex-direction: column; gap: 6px"><h3 style="margin: 0; font-size: 18px; font-weight: 700">{{i.h}}</h3><p style="margin: 0; color: #4B524C">{{i.p}}</p></div>
 </li>
@@ -220,30 +284,30 @@ html{scroll-behavior:smooth}
 
 <!-- Zitat -->
 <section style="background: #2E4A33; color: #FAFAF7">
-<div style="max-width: 980px; margin: 0 auto; padding: 96px 28px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
-<p class="rv-scale serif" style="margin: 0; font-style: italic; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.2">{{t.quote}}</p>
+<div style="max-width: 980px; margin: 0 auto; padding: clamp(48px, 6.67vw, 96px) clamp(16px, 4vw, 28px); display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+<p class="rv-scale serif" style="margin: 0; font-style: italic; font-size: clamp(24px, 3.4vw, 44px); line-height: 1.2">{{t.quote}}</p>
 <span style="font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: #CFE0CF; font-weight: 600">{{t.quoteBy}}</span>
 </div>
 </section>
 
 <!-- Shop -->
-<section id="shop" style="padding: 112px 28px 104px">
+<section id="shop" style="padding: clamp(56px, 7.78vw, 112px) clamp(16px, 4vw, 28px) clamp(52px, 7.22vw, 104px)">
 <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: end">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: end">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{t.shopKicker}}</p>
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{t.shopH2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{t.shopH2}}</h2>
 </div>
 <p style="margin: 0; color: #4B524C; max-width: 540px">{{t.shopP}}</p>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
-<div role="group" aria-label="{{t.filterEstate}}" style="display: flex; flex-wrap: wrap; gap: 8px">
+<div role="group" aria-label="{{t.filterEstate}}" class="chips" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{estates}}" as="e" hint-placeholder-count="4">
 <button type="button" class="btn btn-pill" onClick="{{e.pick}}" aria-pressed="{{e.pressed}}" style="{{e.style}}">{{e.label}}</button>
 </sc-for>
 </div>
-<div role="group" aria-label="{{t.filterType}}" style="display: flex; flex-wrap: wrap; gap: 8px">
+<div role="group" aria-label="{{t.filterType}}" class="chips" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{types}}" as="ty" hint-placeholder-count="5">
 <button type="button" class="btn btn-pill" onClick="{{ty.pick}}" aria-pressed="{{ty.pressed}}" style="{{ty.style}}">{{ty.label}}</button>
 </sc-for>
@@ -251,10 +315,10 @@ html{scroll-behavior:smooth}
 </div>
 <p style="margin: 0; color: #4B524C; font-size: 15px">{{countLabel}}</p>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 36px 24px">
+<div class="wine-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 36px 24px">
 <sc-for list="{{wines}}" as="w" hint-placeholder-count="8">
 <article class="rv wine-card" style="display: flex; flex-direction: column; gap: 16px">
-<div style="background: {{w.bg}}; border-radius: 24px; height: 360px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative">
+<div class="wine-img" style="background: {{w.bg}}; border-radius: 24px; height: 360px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative">
 <span style="position: absolute; top: 16px; left: 16px; z-index: 1; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; background: #FAFAF7; color: #141A16">{{w.type}}</span>
 <sc-if value="{{w.own}}" hint-placeholder-val="{{ true }}">
 <img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="{{t.ownAlt}}" style="position: absolute; top: 12px; right: 14px; z-index: 1; width: 40px; height: auto">
@@ -264,17 +328,17 @@ html{scroll-behavior:smooth}
 </div>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #4B524C; font-weight: 600">{{w.estate}}</span>
-<h3 class="serif" style="margin: 0; font-weight: 600; font-size: 26px; line-height: 1.15"><a href="{{w.page}}" style="text-decoration: none">{{w.name}} {{w.year}}</a></h3>
+<h3 class="serif card-title" style="margin: 0; font-weight: 600; font-size: 26px; line-height: 1.15"><a href="{{w.page}}" style="text-decoration: none">{{w.name}} {{w.year}}</a></h3>
 <span style="color: #4B524C; font-size: 15px">{{w.sub}}</span>
 </div>
 <sc-if value="{{isAT}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto">
+<div class="card-foot" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto">
 <span style="font-size: 21px; font-weight: 700">€ {{w.price}}</span>
 <button type="button" class="btn btn-dark" style="font: inherit; font-weight: 700; font-size: 15px; background: #141A16; color: #FAFAF7; border: 0; border-radius: 999px; padding: 12px 20px; min-height: 44px; cursor: pointer">{{t.addCart}}</button>
 </div>
 </sc-if>
 <sc-if value="{{isGE}}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto">
+<div class="card-foot" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto">
 <span style="font-size: 15px; color: #4B524C">{{r.availGE}}</span>
 <a href="#angebote" class="btn btn-dark" style="font-weight: 700; font-size: 15px; background: #141A16; color: #FAFAF7; text-decoration: none; border-radius: 999px; padding: 12px 20px">{{r.whereBtn}}</a>
 </div>
@@ -286,18 +350,18 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- Weinwissen -->
-<section id="wissen" style="background: #ECE8E1; padding: 104px 28px">
+<section id="wissen" style="background: #ECE8E1; padding: clamp(52px, 7.22vw, 104px) clamp(16px, 4vw, 28px)">
 <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: end">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: end">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{t.wissenKicker}}</p>
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{t.wissenH2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{t.wissenH2}}</h2>
 </div>
 <p style="margin: 0; color: #4B524C; max-width: 540px">{{t.wissenP}}</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px">
 <sc-for list="{{t.wissen}}" as="k" hint-placeholder-count="4">
-<article class="rv" style="background: #FAFAF7; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<article class="rv" style="background: #FAFAF7; border-radius: 24px; padding: clamp(16px, 4vw, 28px); display: flex; flex-direction: column; gap: 10px">
 <h3 class="serif" style="margin: 0; font-size: 28px; font-weight: 600; line-height: 1.15">{{k.h}}</h3>
 <p style="margin: 0; color: #4B524C">{{k.p}}</p>
 <a href="{{k.href}}" class="more" style="font-weight: 700; margin-top: auto; padding-top: 8px">{{k.a}}</a>
@@ -308,9 +372,9 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="padding: 104px 28px">
+<section id="faq" style="padding: clamp(52px, 7.22vw, 104px) clamp(16px, 4vw, 28px)">
 <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{t.faqH2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{t.faqH2}}</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #D9D4CB">
 <sc-for list="{{t.faq}}" as="q" hint-placeholder-count="5">
 <details class="rv" style="border-bottom: 1px solid #D9D4CB; padding: 22px 0">
@@ -324,21 +388,21 @@ html{scroll-behavior:smooth}
 
 <!-- Besuch -->
 <section id="besuch" style="background: #141A16; color: #FAFAF7">
-<div style="max-width: 1280px; margin: 0 auto; padding: 112px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 64px; align-items: start">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7.78vw, 112px) clamp(16px, 4vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 4.44vw, 64px); align-items: start">
 <div style="display: flex; flex-direction: column; gap: 24px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #E39A7E; font-weight: 700">{{t.visitKicker}}</p>
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{t.visitH2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{t.visitH2}}</h2>
 <p style="margin: 0; color: #C9D0C5; font-size: 18px">{{t.visitP}}</p>
-<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
 <li class="rv" style="border: 1px solid #2C382F; border-radius: 18px; padding: 18px 20px; display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8C9A8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3z"/><path d="M12 13v7M8 21h8"/></svg>{{t.visit1}}</li>
 <li class="rv" style="border: 1px solid #2C382F; border-radius: 18px; padding: 18px 20px; display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8C9A8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{t.visit2}}</li>
 <li class="rv" style="border: 1px solid #2C382F; border-radius: 18px; padding: 18px 20px; display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8C9A8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10l2 5c0 6-3 11-7 11S5 15 5 9l2-5z"/></svg>{{t.visit3}}</li>
 <li class="rv" style="border: 1px solid #2C382F; border-radius: 18px; padding: 18px 20px; display: flex; gap: 12px; align-items: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8C9A8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>{{t.visit4}}</li>
 </ul>
 </div>
-<form class="rv" style="background: #FAFAF7; color: #141A16; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
+<form class="rv" style="background: #FAFAF7; color: #141A16; border-radius: 28px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-direction: column; gap: 18px">
 <h3 class="serif" style="margin: 0; font-weight: 600; font-size: 32px; line-height: 1.1">{{t.formH}}</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 14px">
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="t-vn" style="font-size: 14px; font-weight: 700">{{t.fFirst}}</label><input id="t-vn" type="text" style="font: inherit; padding: 12px 14px; border: 1px solid #C9C3B8; border-radius: 12px; min-height: 48px; box-sizing: border-box; background: #FFFFFF"></div>
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="t-nn" style="font-size: 14px; font-weight: 700">{{t.fLast}}</label><input id="t-nn" type="text" style="font: inherit; padding: 12px 14px; border: 1px solid #C9C3B8; border-radius: 12px; min-height: 48px; box-sizing: border-box; background: #FFFFFF"></div>
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="t-em" style="font-size: 14px; font-weight: 700">{{t.fMail}}</label><input id="t-em" type="email" style="font: inherit; padding: 12px 14px; border: 1px solid #C9C3B8; border-radius: 12px; min-height: 48px; box-sizing: border-box; background: #FFFFFF"></div>
@@ -351,10 +415,10 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- Verkostungskalender -->
-<div id="kalender" style="max-width: 1280px; margin: 0 auto; padding: 0 28px 112px; display: flex; flex-direction: column; gap: 28px">
+<div id="kalender" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 28px) clamp(56px, 7.78vw, 112px); display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; border-top: 1px solid #2C382F; padding-top: 72px">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
-<h3 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(34px, 3.6vw, 50px); line-height: 1.05">{{k.h}}</h3>
+<h3 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(28px, 3.6vw, 50px); line-height: 1.05">{{k.h}}</h3>
 <p style="margin: 0; color: #C9D0C5">{{k.p}}</p>
 </div>
 <div role="group" aria-label="{{k.locLabel}}" style="display: flex; flex-wrap: wrap; gap: 8px">
@@ -364,9 +428,9 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: start">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; align-items: start">
 <!-- Monatskalender -->
-<div class="rv" style="background: #1E2820; border: 1px solid #2C382F; border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<div class="rv" style="background: #1E2820; border: 1px solid #2C382F; border-radius: 28px; padding: clamp(16px, 4vw, 28px); display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <button type="button" class="btn btn-ghost" onClick="{{prevMonth}}" aria-label="{{k.prev}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #3C4A40; background: transparent; color: #FAFAF7; cursor: pointer; display: flex; align-items: center; justify-content: center">
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
@@ -430,7 +494,7 @@ html{scroll-behavior:smooth}
 </div>
 <sc-if value="{{ev.showForm}}" hint-placeholder-val="{{ false }}">
 <form style="display: flex; flex-direction: column; gap: 12px; padding-top: 12px; border-top: 1px solid #E2DDD4">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="rn-{{ev.id}}" style="font-size: 14px; font-weight: 700">{{k.name}}</label><input id="rn-{{ev.id}}" type="text" style="font: inherit; padding: 11px 14px; border: 1px solid #C9C3B8; border-radius: 12px; min-height: 46px; box-sizing: border-box"></div>
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="rm-{{ev.id}}" style="font-size: 14px; font-weight: 700">{{k.mail}}</label><input id="rm-{{ev.id}}" type="email" style="font: inherit; padding: 11px 14px; border: 1px solid #C9C3B8; border-radius: 12px; min-height: 46px; box-sizing: border-box"></div>
 <div style="display: flex; flex-direction: column; gap: 4px"><label for="rp-{{ev.id}}" style="font-size: 14px; font-weight: 700">{{k.persons}}</label><input id="rp-{{ev.id}}" type="number" min="1" max="10" value="2" style="font: inherit; padding: 11px 14px; border: 1px solid #C9C3B8; border-radius: 12px; min-height: 46px; box-sizing: border-box"></div>
@@ -453,14 +517,14 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- Instagram -->
-<section style="padding: 104px 28px 0">
+<section style="padding: clamp(52px, 7.22vw, 104px) clamp(16px, 4vw, 28px) 0">
 <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.05">{{t.instaH2}}</h2>
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(28px, 4vw, 52px); line-height: 1.05">{{t.instaH2}}</h2>
 <a href="https://www.instagram.com/bekauri.vineyards/" style="font-weight: 700; display: flex; align-items: center; gap: 8px; padding: 10px 0">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>@bekauri.vineyards</a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div class="insta" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px">
 <div class="rv-scale" style="background: #ECE8E1; border-radius: 20px; height: 280px; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box"><span style="font-size: 12px; font-weight: 700; color: #4B524C">{{t.instaTile}}</span></div>
 <div class="rv-scale" style="background: #DCE3D7; border-radius: 20px; height: 280px; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box"><span style="font-size: 12px; font-weight: 700; color: #3B4A3E">{{t.instaTile}}</span></div>
 <div class="rv-scale" style="background: #ECE8E1; border-radius: 20px; height: 280px; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box"><span style="font-size: 12px; font-weight: 700; color: #4B524C">{{t.instaTile}}</span></div>
@@ -470,33 +534,33 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- Newsletter -->
-<section style="padding: 104px 28px 0">
-<div class="rv-scale" style="max-width: 1280px; margin: 0 auto; background: #A84A2E; color: #FFFFFF; border-radius: 32px; padding: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: center">
+<section style="padding: clamp(52px, 7.22vw, 104px) clamp(16px, 4vw, 28px) 0">
+<div class="rv-scale" style="max-width: 1280px; margin: 0 auto; background: #A84A2E; color: #FFFFFF; border-radius: 32px; padding: clamp(28px, 3.89vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<h2 class="serif" style="margin: 0; font-weight: 500; font-size: 42px; line-height: 1.05">{{t.nlH2}}</h2>
+<h2 class="serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 2.9vw, 42px); line-height: 1.05">{{t.nlH2}}</h2>
 <p style="margin: 0; color: #FBE6DE">{{t.nlP}}</p>
 </div>
 <form style="display: flex; flex-wrap: wrap; gap: 12px">
 <label for="nl" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">{{t.nlLabel}}</label>
 <input id="nl" type="email" placeholder="{{t.nlLabel}}" style="flex: 1 1 240px; font: inherit; padding: 14px 20px; border: 0; border-radius: 999px; min-height: 52px; box-sizing: border-box">
-<button type="button" class="btn btn-invert" style="font: inherit; font-weight: 700; background: #141A16; color: #FAFAF7; border: 0; border-radius: 999px; padding: 14px 28px; min-height: 52px; cursor: pointer">{{t.nlBtn}}</button>
+<button type="button" class="btn btn-invert" style="font: inherit; font-weight: 700; background: #141A16; color: #FAFAF7; border: 0; border-radius: 999px; padding: 14px clamp(16px, 4vw, 28px); min-height: 52px; cursor: pointer">{{t.nlBtn}}</button>
 </form>
 </div>
 </section>
 
 <!-- Kontakt -->
-<section id="kontakt" style="padding: 104px 28px 112px">
+<section id="kontakt" style="padding: clamp(52px, 7.22vw, 104px) clamp(16px, 4vw, 28px) clamp(56px, 7.78vw, 112px)">
 <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.02">{{t.contactH2}}</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px">
-<div class="rv" style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
+<h2 class="rv serif" style="margin: 0; font-weight: 500; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02">{{t.contactH2}}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px">
+<div class="rv" style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 28px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{t.c1Label}}</span>
 <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600">Bekauri Weinhandel</h3>
 <p style="margin: 0; color: #4B524C">Nana Dubaeva e.U.<br>{{t.c1Addr}}</p>
 <a href="mailto:info@bekauri-weinhandel.at" style="font-weight: 600">info@bekauri-weinhandel.at</a>
 <a href="tel:+436764117799" style="font-weight: 600">+43 676 411 77 99</a>
 </div>
-<div class="rv" style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
+<div class="rv" style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 28px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{t.c2Label}}</span>
 <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600">Bekauri Family Vineyards</h3>
 <p style="margin: 0; color: #4B524C">{{t.c2Addr1}}<br>{{t.c2Addr2}}</p>
@@ -509,7 +573,7 @@ html{scroll-behavior:smooth}
 
 <!-- Footer -->
 <footer style="background: #0E1310; color: #C9D0C5; font-size: 15px">
-<div style="max-width: 1280px; margin: 0 auto; padding: 64px 28px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(32px, 4.44vw, 64px) clamp(16px, 4vw, 28px) clamp(16px, 2.22vw, 32px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 36px">
 <div style="display: flex; align-items: center; gap: 14px">
 <img src="/_blob/2fdad768f1a061b16aa7e24bff4015b3" alt="Bekauri Family Vineyards" style="height: 84px; width: auto">
 <span style="display: flex; flex-direction: column; line-height: 1; color: #FAFAF7">
@@ -529,7 +593,7 @@ html{scroll-behavior:smooth}
 <a href="https://www.facebook.com/bekauri.vineyards" style="color: #C9D0C5; text-decoration: none">Facebook</a>
 </nav>
 </div>
-<div style="max-width: 1280px; margin: 0 auto; padding: 20px 28px 32px; border-top: 1px solid #263028; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 20px clamp(16px, 4vw, 28px) clamp(16px, 2.22vw, 32px); border-top: 1px solid #263028; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px">
 <span>© 2026 Bekauri Family Vineyards · Bekauri Weinhandel · {{t.age}}</span>
 <nav aria-label="{{t.legalLabel}}" style="display: flex; flex-wrap: wrap; gap: 8px 24px">
 <a href="#" style="color: #C9D0C5">{{t.agb}}</a>
@@ -546,7 +610,7 @@ html{scroll-behavior:smooth}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { estate: 'all', type: 'all', lang: null, region: null, calY: 2026, calM: 10, selDay: null, calLoc: null, regFor: null, done: {} };
+    this.state = { menuOpen: false, estate: 'all', type: 'all', lang: null, region: null, calY: 2026, calM: 10, selDay: null, calLoc: null, regFor: null, done: {} };
   }
   renderVals() {
     var self = this;
@@ -645,7 +709,7 @@ class Component extends DCLogic {
         topbar: 'Weingut in Kachetien, Georgien · Weinhandel in Österreich',
         homeLabel: 'Bekauri Family Vineyards – Startseite', navLabel: 'Hauptnavigation',
         nav1: 'Georgische Weine', nav2: 'Weinwissen', nav3: 'Weingut', nav4: 'Verkostung', nav5: 'Kontakt',
-        cartLabel: 'Warenkorb, 0 Artikel',
+        cartLabel: 'Warenkorb, 0 Artikel', menuLabel: 'Menü',
         heroKicker: 'Weinhandel Graz · Weingut Kachetien',
         heroH1a: 'Georgischer Wein', heroH1b: 'direkt vom Familienweingut.',
         heroP: 'Saperavi, Kvevri-Weine und Amber Wine aus Kachetien – vom eigenen Weinberg in Ihr Glas. Über unseren Weinhandel bei Graz kaufen Sie georgische Weine exklusiv in Österreich und Deutschland.',
@@ -708,7 +772,7 @@ class Component extends DCLogic {
         topbar: 'მამული კახეთში, საქართველო · ღვინის მაღაზია ავსტრიაში',
         homeLabel: 'Bekauri Family Vineyards – მთავარი გვერდი', navLabel: 'მთავარი ნავიგაცია',
         nav1: 'ქართული ღვინოები', nav2: 'ღვინის შესახებ', nav3: 'მამული', nav4: 'დეგუსტაცია', nav5: 'კონტაქტი',
-        cartLabel: 'კალათა, 0 ნივთი',
+        cartLabel: 'კალათა, 0 ნივთი', menuLabel: 'მენიუ',
         heroKicker: 'ღვინის მაღაზია გრაცში · მამული კახეთში',
         heroH1a: 'ქართული ღვინო', heroH1b: 'პირდაპირ საოჯახო მარნიდან.',
         heroP: 'საფერავი, ქვევრის ღვინოები და ქარვისფერი ღვინო კახეთიდან – ჩვენი ვენახიდან პირდაპირ თქვენს ჭიქაში. ჩვენი ღვინის მაღაზიის მეშვეობით, გრაცთან ახლოს, ქართულ ღვინოს ექსკლუზიურად ავსტრიასა და გერმანიაში შეიძენთ.',
@@ -831,7 +895,7 @@ class Component extends DCLogic {
         img: IMG[slug] ? IMG[slug][0] : '', hasImg: !!IMG[slug], noImg: !IMG[slug],
         imgStyle: IMG[slug] && IMG[slug][1] === 'photo'
           ? 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 24px; z-index: 0'
-          : 'height: 310px; width: auto; max-width: 80%; object-fit: contain; mix-blend-mode: multiply',
+          : 'height: 86%; width: auto; max-width: 80%; object-fit: contain; mix-blend-mode: multiply',
         alt: t.bottleAlt(names[r[0]] + ' ' + nm + ' ' + r[2], kind)
       };
     });
@@ -964,6 +1028,11 @@ class Component extends DCLogic {
       self.setState({ calM: nm, calY: ny, selDay: null, regFor: null });
     };
     return {
+      menuOpen: this.state.menuOpen,
+      menuClosed: !this.state.menuOpen,
+      menuExpanded: this.state.menuOpen ? 'true' : 'false',
+      toggleMenu: function () { self.setState({ menuOpen: !self.state.menuOpen }); },
+      closeMenu: function () { self.setState({ menuOpen: false }); },
       k: k,
       calLocs: calLocs,
       cells: cells,

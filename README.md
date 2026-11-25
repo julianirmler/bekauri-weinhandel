@@ -13,6 +13,7 @@ design/
   SEO.dc.html                 SEO- & On-Page-Spezifikation
   Wein.dc.html                Vorlage Produktseite (alle Weindaten)
   wein-<weingut>-<wein>-<jahrgang>.dc.html   18 Weinseiten (binden Wein.dc.html ein)
+  Main-mobil / Main-tablet, wein-vorschau-*   Responsive-Vorschauen (generierte Kopien)
 assets/
   crest-dark.png / crest-light.png        Bekauri-Wappen, freigestellt (dunkel / hell)
   wordmark-dark.png / wordmark-light.png  Schriftzug, freigestellt
@@ -26,6 +27,7 @@ Die `.dc.html`-Dateien sind Design-Komponenten des Claude-Design-Canvas (HTML mi
 - **Mehrsprachig:** Umschalter DE | KA (Georgisch)
 - **Regionale Angebote:** Österreich (Shop-Aktionen, Euro-Preise) bzw. Georgien (Touren, Partner in Tiflis); Erkennung im Entwurf per Zeitzone, live per IP-Land (siehe SEO-Spezifikation, Abschnitt 7)
 - **Weinseiten:** 18 Produktseiten mit Steckbrief, Beschreibung, Videoplatz für Weinpräsentation, verwandten Weinen
+- **Responsive:** Breakpoints Mobil (bis 599 px), Tablet (600–1023 px), Desktop (ab 1024 px); Menü-Button, fließende Abstände mit `clamp()`, mobile Kaufleiste auf Weinseiten
 - **Effekte:** Scroll-Animationen (CSS Scroll-driven Animations), Logo-Schimmer, Button-Hover; `prefers-reduced-motion` wird respektiert
 - **SEO:** Keyword-Mapping, Meta-Daten, Überschriften-Struktur, JSON-LD (LiquorStore, Winery, Product, FAQPage), hreflang-Strategie
 

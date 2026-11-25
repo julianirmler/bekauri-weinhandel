@@ -14,11 +14,11 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="font-family: Manrope, system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6">
+<div style="font-family: Manrope, system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6; overflow-x: clip">
 
 <!-- Header -->
 <header style="background: #141A16; color: #FAFAF7">
-<div style="max-width: 1280px; margin: 0 auto; padding: 14px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 14px clamp(16px, 4vw, 28px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
 <a href="Main.dc.html" class="logo-link" aria-label="Bekauri Family Vineyards – Startseite" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #FAFAF7">
 <img src="/_blob/2fdad768f1a061b16aa7e24bff4015b3" alt="" class="logo-crest" style="height: 56px; width: auto">
 <span style="display: flex; flex-direction: column; line-height: 1">
@@ -26,7 +26,7 @@ body{margin:0}
 <span style="font-size: 10px; letter-spacing: 0.3em; margin-top: 5px; color: #C9D0C5">FAMILY VINEYARDS</span>
 </span>
 </a>
-<nav aria-label="Hauptnavigation" style="display: flex; flex-wrap: wrap; gap: 4px 30px; font-size: 15px">
+<nav class="nav-desktop" aria-label="Hauptnavigation" style="display: flex; flex-wrap: wrap; gap: 4px 30px; font-size: 15px">
 <a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Georgische Weine</a>
 <a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Weinwissen</a>
 <a href="Main.dc.html" style="color: #E6EAE3; text-decoration: none; padding: 10px 0">Weingut</a>
@@ -40,7 +40,7 @@ body{margin:0}
 </header>
 
 <!-- Breadcrumb -->
-<nav aria-label="Brotkrumen" style="max-width: 1280px; margin: 0 auto; padding: 22px 28px 0; font-size: 14px; color: #4B524C">
+<nav aria-label="Brotkrumen" style="max-width: 1280px; margin: 0 auto; padding: 22px clamp(16px, 4vw, 28px) 0; font-size: 14px; color: #4B524C">
 <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 10px">
 <li><a href="Main.dc.html" style="color: #4B524C">Startseite</a> ›</li>
 <li><a href="Main.dc.html" style="color: #4B524C">Georgische Weine</a> ›</li>
@@ -50,10 +50,10 @@ body{margin:0}
 </nav>
 
 <!-- Produkt -->
-<section style="padding: 32px 28px 88px">
-<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 56px; align-items: start">
+<section style="padding: clamp(16px, 2.22vw, 32px) clamp(16px, 4vw, 28px) clamp(44px, 6.11vw, 88px)">
+<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(28px, 3.89vw, 56px); align-items: start">
 <div style="display: flex; flex-direction: column; gap: 14px">
-<div style="background: {{w.bg}}; border-radius: 32px; height: 640px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative">
+<div class="w-hero-img" style="background: {{w.bg}}; border-radius: 32px; height: 640px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative">
 <span style="position: absolute; top: 20px; left: 20px; z-index: 1; background: #FAFAF7; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px">{{w.photoLabel}}</span>
 <sc-if value="{{w.own}}" hint-placeholder-val="{{ true }}">
 <img src="/_blob/8a80dee953d03c72f7bbbe3464760d61" alt="Eigener Wein von Bekauri Family Vineyards" style="position: absolute; top: 16px; right: 20px; z-index: 1; width: 56px; height: auto">
@@ -71,7 +71,7 @@ body{margin:0}
 <div style="display: flex; flex-direction: column; gap: 24px; padding-top: 8px">
 <div style="display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #A84A2E; font-weight: 700">{{w.estate}}</span>
-<h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(44px, 5vw, 72px); line-height: 1">{{w.name}} {{w.year}}</h1>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(34px, 5vw, 72px); line-height: 1">{{w.name}} {{w.year}}</h1>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <span style="font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: #141A16; color: #FAFAF7">{{w.kind}}</span>
 <span style="font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 999px; background: #ECE8E1">{{w.taste}}</span>
@@ -89,9 +89,9 @@ body{margin:0}
 <span aria-live="polite" style="min-width: 36px; text-align: center; font-weight: 700; font-size: 18px">{{qty}}</span>
 <button type="button" onClick="{{inc}}" aria-label="Menge erhöhen" style="font: inherit; font-size: 22px; width: 52px; height: 52px; border: 0; background: transparent; cursor: pointer; border-radius: 999px">+</button>
 </div>
-<button type="button" onClick="{{add}}" class="btn btn-dark" style="flex: 1 1 240px; font: inherit; font-weight: 700; font-size: 17px; background: #141A16; color: #FAFAF7; border: 0; border-radius: 999px; padding: 15px 28px; min-height: 52px; cursor: pointer">{{addLabel}}</button>
+<button type="button" onClick="{{add}}" class="btn btn-dark" style="flex: 1 1 240px; font: inherit; font-weight: 700; font-size: 17px; background: #141A16; color: #FAFAF7; border: 0; border-radius: 999px; padding: 15px clamp(16px, 4vw, 28px); min-height: 52px; cursor: pointer">{{addLabel}}</button>
 </div>
-<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 15px">
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px; font-size: 15px">
 <li style="display: flex; gap: 10px; align-items: center; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 16px; padding: 14px 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E4A33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{w.origin}}</li>
 <li style="display: flex; gap: 10px; align-items: center; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 16px; padding: 14px 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E4A33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg>Exklusiv in AT &amp; DE</li>
 <li style="display: flex; gap: 10px; align-items: center; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 16px; padding: 14px 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E4A33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Beratung: +43 676 411 77 99</li>
@@ -101,20 +101,20 @@ body{margin:0}
 </section>
 
 <!-- Beschreibung & Steckbrief -->
-<section style="background: #ECE8E1; padding: 88px 28px">
-<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 56px; align-items: start">
+<section style="background: #ECE8E1; padding: clamp(44px, 6.11vw, 88px) clamp(16px, 4vw, 28px)">
+<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(28px, 3.89vw, 56px); align-items: start">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.05">Über diesen Wein</h2>
 <p style="margin: 0; font-size: 18px; color: #3A413B">{{w.desc}}</p>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <h3 style="margin: 0; font-size: 18px">Verkostungsnotiz</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px">
 <div style="border: 1.5px dashed #B8B0A3; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #A84A2E">Farbe</span><span style="color: #4B524C">[vom Weingut ergänzen]</span></div>
 <div style="border: 1.5px dashed #B8B0A3; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #A84A2E">Nase</span><span style="color: #4B524C">[vom Weingut ergänzen]</span></div>
 <div style="border: 1.5px dashed #B8B0A3; border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #A84A2E">Gaumen</span><span style="color: #4B524C">[vom Weingut ergänzen]</span></div>
 </div>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
 <div style="background: #FAFAF7; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px">
 <span style="display: flex; gap: 8px; align-items: center; font-weight: 700"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A84A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M6 11a6 6 0 0 0 12 0M9 4v4M12 3v5M15 4v4"/></svg>Passt zu</span>
 <span style="color: #4B524C">{{w.food}}</span>
@@ -125,11 +125,11 @@ body{margin:0}
 </div>
 </div>
 </div>
-<div style="background: #FAFAF7; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 4px">
+<div style="background: #FAFAF7; border-radius: 28px; padding: clamp(16px, 2.22vw, 32px); display: flex; flex-direction: column; gap: 4px">
 <h2 style="margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 32px">Steckbrief</h2>
 <dl style="margin: 0; display: flex; flex-direction: column">
 <sc-for list="{{facts}}" as="f" hint-placeholder-count="9">
-<div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid #E2DDD4">
+<div class="facts-row" style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid #E2DDD4">
 <dt style="color: #4B524C; font-weight: 500">{{f.k}}</dt>
 <dd style="margin: 0; font-weight: 600">{{f.v}}</dd>
 </div>
@@ -140,7 +140,7 @@ body{margin:0}
 </section>
 
 <!-- Video -->
-<section style="background: #141A16; color: #FAFAF7; padding: 96px 28px">
+<section style="background: #141A16; color: #FAFAF7; padding: clamp(48px, 6.67vw, 96px) clamp(16px, 4vw, 28px)">
 <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 10px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #E39A7E; font-weight: 700">Weinpräsentation</p>
@@ -173,10 +173,10 @@ body{margin:0}
 </section>
 
 <!-- Weitere Weine -->
-<section style="padding: 96px 28px">
+<section style="padding: clamp(48px, 6.67vw, 96px) clamp(16px, 4vw, 28px)">
 <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4vw, 52px); line-height: 1.05">Weitere Weine von {{w.estate}}</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px">
 <sc-for list="{{related}}" as="r" hint-placeholder-count="3">
 <a href="{{r.page}}" class="wine-card" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
 <div style="background: {{r.bg}}; border-radius: 24px; height: 300px; overflow: hidden; display: flex; align-items: center; justify-content: center">
@@ -195,9 +195,18 @@ body{margin:0}
 </div>
 </section>
 
+<!-- Mobile Kaufleiste -->
+<div class="sticky-buy" style="display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: #141A16; color: #FAFAF7; padding: 12px 16px; gap: 12px; align-items: center; justify-content: space-between; box-shadow: 0 -8px 24px rgba(0,0,0,0.25)">
+<span style="display: flex; flex-direction: column; line-height: 1.25; min-width: 0">
+<span style="font-size: 13px; color: #C9D0C5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{w.name}} {{w.year}}</span>
+<span style="font-size: 20px; font-weight: 700">€ {{w.price}}</span>
+</span>
+<button type="button" onClick="{{add}}" class="btn btn-primary" style="flex: none; font: inherit; font-weight: 700; background: #A84A2E; color: #FFFFFF; border: 0; border-radius: 999px; padding: 12px 20px; min-height: 48px; cursor: pointer">{{addLabelShort}}</button>
+</div>
+
 <!-- Footer -->
-<footer style="background: #0E1310; color: #C9D0C5; font-size: 14px">
-<div style="max-width: 1280px; margin: 0 auto; padding: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
+<footer class="w-footer" style="background: #0E1310; color: #C9D0C5; font-size: 14px">
+<div style="max-width: 1280px; margin: 0 auto; padding: clamp(16px, 4vw, 28px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
 <span>© 2026 Bekauri Family Vineyards · Bekauri Weinhandel, Gärtnerweg 4, 8073 Feldkirchen bei Graz · Abgabe nur ab 18 Jahren</span>
 <nav aria-label="Rechtliches" style="display: flex; flex-wrap: wrap; gap: 8px 20px">
 <a href="#" style="color: #C9D0C5">AGB</a>
@@ -289,10 +298,10 @@ class Component extends DCLogic {
         img: IMG[r[0]] ? IMG[r[0]][0] : '', hasImg: !!IMG[r[0]], noImg: !IMG[r[0]],
         bigStyle: IMG[r[0]] && IMG[r[0]][1] === 'photo'
           ? 'position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 32px; z-index: 0'
-          : 'height: 560px; width: auto; max-width: 80%; object-fit: contain; mix-blend-mode: multiply',
+          : 'height: 88%; width: auto; max-width: 80%; object-fit: contain; mix-blend-mode: multiply',
         smallStyle: IMG[r[0]] && IMG[r[0]][1] === 'photo'
           ? 'width: 100%; height: 100%; object-fit: cover; border-radius: 24px'
-          : 'height: 260px; width: auto; object-fit: contain; mix-blend-mode: multiply',
+          : 'height: 86%; width: auto; object-fit: contain; mix-blend-mode: multiply',
         alt: 'Flasche ' + e.name + ' ' + r[2] + ' ' + r[3] + ' – georgischer ' + s.kind,
         lead: 'Georgischer ' + s.kind + ' von ' + e.name + ' aus dem Jahrgang ' + r[3] + '.'
       };
@@ -318,6 +327,7 @@ class Component extends DCLogic {
     if (w.extra) facts.splice(4, 0, { k: 'Ausbau', v: w.extra });
     var qty = this.state.qty;
     return {
+      addLabelShort: this.state.added ? 'Hinzugefügt ✓' : 'In den Warenkorb',
       w: w,
       facts: facts,
       related: related,

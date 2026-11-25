@@ -16,7 +16,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 </style>
 </helmet>
 <div style="font-family: Manrope, system-ui, sans-serif; color: #141A16; background: #FAFAF7; font-size: 16px; line-height: 1.6">
-<div style="max-width: 1120px; margin: 0 auto; padding: 72px 28px 96px; display: flex; flex-direction: column; gap: 64px">
+<div style="max-width: 1120px; margin: 0 auto; padding: clamp(36px, 5.0vw, 72px) clamp(16px, 4vw, 28px) clamp(48px, 6.67vw, 96px); display: flex; flex-direction: column; gap: clamp(32px, 4.44vw, 64px)">
 
 <header style="display: flex; flex-direction: column; gap: 12px">
 <p style="margin: 0; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #A84A2E; font-weight: 700">Konzept · SEO &amp; On-Page</p>
@@ -49,7 +49,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 <!-- 2 Meta-Daten -->
 <section style="display: flex; flex-direction: column; gap: 20px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">2 · Title &amp; Meta-Description</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
 <div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #4B524C; font-weight: 700">Startseite · Google-Vorschau</span>
 <span style="color: #1A0DAB; font-size: 20px; line-height: 1.3">Georgischer Wein kaufen in Österreich | Bekauri Family Vineyards</span>
@@ -70,7 +70,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 <!-- 3 Überschriften -->
 <section style="display: flex; flex-direction: column; gap: 20px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">3 · Überschriften-Struktur der Startseite (umgesetzt)</h2>
-<ul style="margin: 0; padding: 24px 28px; list-style: none; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px">
+<ul style="margin: 0; padding: 24px clamp(16px, 4vw, 28px); list-style: none; background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px">
 <li><strong>H1</strong> Georgischer Wein direkt vom Familienweingut.</li>
 <li style="padding-left: 24px"><strong>H2</strong> Familienweingut in Kachetien, Georgien → H3 Ein Familienbetrieb · Über Generationen · Der erste Jahrgang · Estate Grown &amp; Estate Bottled</li>
 <li style="padding-left: 24px"><strong>H2</strong> Georgische Weine online kaufen → H3 je Wein, z. B. „Saperavi Qvevri 2021“ (verlinkt auf Produktseite)</li>
@@ -84,7 +84,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 <!-- 4 Strukturierte Daten -->
 <section style="display: flex; flex-direction: column; gap: 20px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">4 · Strukturierte Daten (JSON-LD)</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <h3 style="margin: 0; font-size: 17px">Weinhandel · LocalBusiness / Store</h3>
 <pre style="margin: 0; background: #141A16; color: #E6EAE3; border-radius: 18px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.55; overflow-x: auto; white-space: pre">{
@@ -168,7 +168,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 <!-- 5 Gefundene Probleme -->
 <section style="display: flex; flex-direction: column; gap: 20px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">5 · Auf der aktuellen Seite gefunden – im Konzept behoben</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 12px">
 <div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Keine H1:</strong> Die Startseite beginnt mit einer H2 („Bekauri Weinhandel Österreich“). → Jetzt eine H1 mit Hauptkeyword.</div>
 <div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Fehlerhafte Produktnamen &amp; URLs:</strong> z. B. „Chateau KveteraNoble Collection Kindzmarauli2023“. → Einheitliches Schema „Weingut Wein Jahrgang“.</div>
 <div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 20px 22px"><strong>Platzhalter-SKUs:</strong> „SKU 00000“ usw. sichtbar. → Ausblenden bzw. echte Artikelnummern/GTIN pflegen.</div>
@@ -181,7 +181,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 <!-- 6 Technik -->
 <section style="display: flex; flex-direction: column; gap: 20px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">6 · Technisches SEO &amp; Domain-Strategie</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
 <div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
 <h3 style="margin: 0; font-size: 18px">Domains</h3>
 <p style="margin: 0; color: #4B524C">Deutschsprachiger One-Pager und Shop auf <strong>bekauri-weinhandel.at</strong> (.at-Domain stärkt lokale Relevanz). <strong>bekaurivineyards.com</strong> bleibt die internationale Weingut-Seite (EN). Beide Seiten gegenseitig verlinken und per <code>hreflang</code> verbinden: de-AT, de-DE ↔ en. Keine doppelten Texte auf beiden Domains.</p>
@@ -205,7 +205,7 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 <section style="display: flex; flex-direction: column; gap: 20px">
 <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">7 · Regionale Angebote (Österreich / Georgien)</h2>
 <p style="margin: 0; color: #4B524C">Die Startseite zeigt je nach Standort andere Angebote: aus Österreich und Deutschland die Shop-Aktionen mit Preisen in Euro, aus Georgien Touren, Ab-Hof-Angebote und die Partner in Tiflis. Sprache und Region sind getrennt: Georgisch Sprechende in Graz sehen die AT-Aktionen auf Georgisch.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
 <div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
 <h3 style="margin: 0; font-size: 18px">So wird die Region erkannt</h3>
 <ol style="margin: 0; padding-left: 20px; color: #4B524C; display: flex; flex-direction: column; gap: 4px">
@@ -228,10 +228,48 @@ a{color:#A84A2E}a:hover{color:#7E3420}
 </div>
 </section>
 
+<!-- 8 Mobile -->
+<section style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 38px">8 · Mobile &amp; Responsive</h2>
+<p style="margin: 0; color: #4B524C">Google bewertet und indexiert die Seite in der mobilen Fassung (Mobile-First-Indexing). Inhalte, Überschriften, strukturierte Daten und Links müssen auf dem Smartphone vollständig vorhanden sein – auch wenn sie dort anders angeordnet sind.</p>
+<div style="overflow-x: auto; border: 1px solid #E2DDD4; border-radius: 18px; background: #FFFFFF">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 640px">
+<thead><tr style="background: #ECE8E1; text-align: left"><th style="padding: 14px 18px">Breakpoint</th><th style="padding: 14px 18px">Breite</th><th style="padding: 14px 18px">Was sich ändert</th></tr></thead>
+<tbody>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-weight: 700">Mobil</td><td style="padding: 14px 18px">bis 599 px</td><td style="padding: 14px 18px; color: #4B524C">Menü-Button statt Navigation, Infoleiste im Menü, alles einspaltig, Kennzahlen 2×2, Weinkarten 2-spaltig, Filter wischbar, Kaufleiste unten auf Weinseiten, kein Parallax</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-weight: 700">Tablet</td><td style="padding: 14px 18px">600–1023 px</td><td style="padding: 14px 18px; color: #4B524C">Kompaktere Navigation, Raster mit 2 Spalten, Abstände und Schriftgrößen fließend skaliert</td></tr>
+<tr style="border-top: 1px solid #E2DDD4"><td style="padding: 14px 18px; font-weight: 700">Desktop</td><td style="padding: 14px 18px">ab 1024 px</td><td style="padding: 14px 18px; color: #4B524C">Volles Layout wie im Entwurf (max. 1280 px Inhaltsbreite)</td></tr>
+</tbody>
+</table>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 18px">Für die Entwicklung</h3>
+<ul style="margin: 0; padding-left: 20px; color: #4B524C; display: flex; flex-direction: column; gap: 4px">
+<li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> auf jeder Seite</li>
+<li>Raster mit <code>minmax(min(100%, …), 1fr)</code> – nie breiter als der Bildschirm</li>
+<li>Abstände und Überschriften mit <code>clamp()</code>, keine festen Pixelhöhen für Inhaltsbereiche</li>
+<li>Eingabefelder mindestens 16 px Schrift (kein Auto-Zoom auf dem iPhone), Tippflächen mindestens 44 × 44 px</li>
+<li>Mobiles Menü: Navigation bleibt im HTML vorhanden (nur ausgeblendet), damit Google alle Links sieht</li>
+</ul>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DDD4; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 18px">Ladezeit &amp; Core Web Vitals (mobil)</h3>
+<ul style="margin: 0; padding-left: 20px; color: #4B524C; display: flex; flex-direction: column; gap: 4px">
+<li>Zielwerte: LCP unter 2,5 s, INP unter 200 ms, CLS unter 0,1</li>
+<li>Bilder als WebP/AVIF mit <code>srcset</code>/<code>sizes</code> und festen <code>width</code>/<code>height</code> gegen Layout-Sprünge</li>
+<li>Hero-Bild mit <code>fetchpriority="high"</code>, alles unterhalb des sichtbaren Bereichs mit <code>loading="lazy"</code></li>
+<li>Google Fonts nur in benötigten Schnitten laden, <code>font-display: swap</code></li>
+<li>Prüfen mit Lighthouse (Mobil), PageSpeed Insights und der Search Console sowie auf echten Geräten (iPhone, Android)</li>
+</ul>
+</div>
+</div>
+</section>
+
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4500}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5300}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};
