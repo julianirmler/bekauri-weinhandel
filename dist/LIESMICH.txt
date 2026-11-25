@@ -1,0 +1,16 @@
+Bekauri – Designentwurf (statische Website)
+===========================================
+
+Hochladen: den GESAMTEN Inhalt dieses Ordners (inkl. assets/ und der versteckten Datei .htaccess)
+per FTP in das Web-Verzeichnis der Domain laden (oft "htdocs", "public_html" oder "www").
+Funktioniert auch in einem Unterordner, z. B. /entwurf/.
+
+Testen: index.html aufrufen. Region und Sprache lassen sich per Adresse erzwingen:
+  index.html?region=ge   -> Angebote Georgien
+  index.html?lang=ka     -> Georgisch
+
+Hinweise:
+- Die Seite ist fuer Suchmaschinen gesperrt (noindex, robots.txt).
+- Warenkorb, Formulare und Anmeldungen senden nichts ab.
+- Schriften werden von Google Fonts geladen; fuer den Live-Betrieb lokal einbinden (DSGVO).
+- konzept-seo.html enthaelt die SEO-Spezifikation (nicht verlinkt).

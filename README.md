@@ -21,6 +21,10 @@ assets/
 
 Die `.dc.html`-Dateien sind Design-Komponenten des Claude-Design-Canvas (HTML mit Vorlagen-Platzhaltern `{{…}}`), kein fertiger Produktions-Code. Bilder im Entwurf werden über Canvas-Uploads (`/_blob/…`) geladen; die Originale liegen in `assets/`.
 
+## Statische Website (für Webspace / FTP)
+
+`python3 tools/build_static.py` erzeugt aus `design/` eine eigenständige Website in `dist/` (HTML, CSS, JS, Bilder – läuft auf jedem Webserver, auch in einem Unterordner). Den Inhalt von `dist/` per FTP hochladen; Details in `dist/LIESMICH.txt`. Die Seite ist für Suchmaschinen gesperrt und trägt einen Entwurfs-Hinweis.
+
 ## Funktionen im Entwurf
 
 - **Startseite:** Hero mit Wappen-Effekt, Kennzahlen, Geschichte, Shop mit Filter (Weingut / Weinart), Weinwissen, FAQ, Besuch & Verkostung, Newsletter, Kontakt
