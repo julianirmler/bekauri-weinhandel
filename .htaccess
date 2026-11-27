@@ -1,0 +1,8 @@
+# Entwurf: nicht in Suchmaschinen aufnehmen
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+DirectoryIndex index.html
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
