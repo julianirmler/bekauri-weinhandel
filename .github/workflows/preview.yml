@@ -1,0 +1,36 @@
+name: Vorschau bauen
+
+# Baut bei jeder Änderung an main die statische Website neu
+# und legt sie in den Branch "preview" (wird von Plesk ausgeliefert).
+on:
+  push:
+    branches: [main]
+    paths: ['design/**', 'assets/**', 'tools/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Website bauen
+        run: python3 tools/build_static.py
+      - name: In Branch "preview" veröffentlichen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git fetch origin preview --depth 1
+          git worktree add /tmp/preview origin/preview
+          cd /tmp/preview
+          git rm -rq --ignore-unmatch . || true
+          cp -r "$GITHUB_WORKSPACE/dist/." .
+          git add -A
+          if git diff --cached --quiet; then echo "Keine Änderungen"; exit 0; fi
+          git commit -m "Vorschau aktualisiert (${GITHUB_SHA::7})"
+          git push origin HEAD:preview
